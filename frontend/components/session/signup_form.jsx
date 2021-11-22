@@ -1,12 +1,11 @@
 import React, {Component} from "react";
-import { signup } from "../../util/session_util";
 
 
 class SignUpForm extends Component{
   constructor(props){
     super(props)
 
-    state = {
+    this.state = {
       username: '',
       email: '',
       password: ''
@@ -16,8 +15,11 @@ class SignUpForm extends Component{
   }
 
   handleSubmit(e){
+    const {signup} = this.props
     e.preventDefault()
-    this.props.signup(this.state)
+    console.log(signup)
+    signup(this.state)
+
   }
 
   handleChange(input){

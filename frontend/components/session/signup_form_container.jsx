@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { signup } from "../../util/session_util";
+import { signup } from "../../actions/session_actions";
 import SignUpForm from "./signup_form";
 
 const mapDTP = dispatch => ({

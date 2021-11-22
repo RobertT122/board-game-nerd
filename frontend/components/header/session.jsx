@@ -1,30 +1,33 @@
 import React from 'react';
 
-const redirectToSignup = () => {
-  return null
-}
 
-const renderLoginModal = () => {
-  return null
-}
+const Session = ({ currentUser, logout, history, showLogin}) => {
 
-const renderUserOptions = () => {
-  return null
-}
+  const redirectToSignup = () => {
+    history.push("/signup")
+  }
+  
+  const showUserOptions = () => {
+    return null
+  }
 
-cosnt 
+  const debugLogin = () =>{
+    console.log(showLogin)
+    return showLogin()
+  }
 
-const Session = ({ currentUser, logout, match }) => {
   const sessionButtons = () => (
     <div className="login-signup">
-      <button onClick={renderLoginModal}>Login</button>
-      <button onClick={redirectToSignup}>Sign up</button>
+
+      <button onClick={debugLogin}>Login</button>
+
+      <button onClick={() => redirectToSignup()}>Sign up</button>
     </div>
   );
 
   const userDropDown = () => (
     <div className="user-drop-down">
-      <button onClick={renderUserOptions}>{currentUser.username}</button>
+      <button onClick={showUserOptions}>{currentUser.username}</button>
       <button onClick={logout}>Log out</button>
     </div>
   );

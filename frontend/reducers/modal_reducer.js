@@ -1,16 +1,14 @@
 import { SHOW_LOGIN_MODAL, HIDE_MODAL } from "../actions/ui_actions";
 
-const defaultState = {
-  login: false,
-}
 
-const modalReducer = (state = defaultState, action) => {
+const modalReducer = (state = null, action) => {
   Object.freeze(state);
   switch(action.type){
     case SHOW_LOGIN_MODAL:
-      return Object.assign({}, defaultState, {login: true});
+      console.log("login")
+      return "login";
     case HIDE_MODAL:
-      return defaultState
+      return null
     default:
       return state
   }

@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 
-class Login extends Component{
+class LoginModal extends Component{
   constructor(props){
     super(props)
 
-    state = {
+    this.state = {
       username: '',
       password: ''
     }
@@ -14,7 +14,7 @@ class Login extends Component{
 
   handleSubmit(e){
     e.preventDefault()
-    this.props.signup(this.state)
+    this.props.login(this.state)
   }
 
   handleChange(input){
@@ -40,8 +40,10 @@ class Login extends Component{
           type="password" 
           onChange={this.handleChange("password")}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit">Log In</button>
       </form>
     )
   }
 }
+
+export default LoginModal

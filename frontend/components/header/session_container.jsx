@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-
+import { showLoginModal } from '../../actions/ui_actions';
 import { logout } from '../../actions/session_actions';
 import Session from './session';
+import {withRouter} from 'react-router-dom'
 
 const mapSTP = ({ session, entities: { users } }) => {
   return {
@@ -10,7 +11,10 @@ const mapSTP = ({ session, entities: { users } }) => {
 };
 
 const mapDTP = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  showLogin: () => dispatch(showLoginModal()),
 });
 
-export default connect(mapSTP, mapDTP)(Session);
+const SessionContainer = withRouter(connect(mapSTP, mapDTP)(Session));
+
+export default SessionContainer
