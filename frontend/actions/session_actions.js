@@ -1,4 +1,5 @@
 import * as SessionUtil from '../util/session_util'
+import { hideModal } from './ui_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
@@ -23,7 +24,6 @@ export const signup = user => dispatch => (
   SessionUtil.signup(user)
     .then(
       user => {
-        console.log(user)
         return dispatch(receiveCurrentUser(user))
       }, 
       errors => (dispatch(receiveErrors(errors.responseJSON)))
@@ -35,6 +35,9 @@ export const login = user => dispatch => (
     .then( 
       user => (dispatch(receiveCurrentUser(user))),
       errors => (dispatch(receiveErrors(errors.responseJSON)))
+    )
+    .then(
+      () => (dispatch(hideModal()))
     )
 );
 

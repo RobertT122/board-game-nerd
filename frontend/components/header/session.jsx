@@ -12,7 +12,6 @@ const Session = ({ currentUser, logout, history, showLogin}) => {
   }
 
   const debugLogin = () =>{
-    console.log(showLogin)
     return showLogin()
   }
 

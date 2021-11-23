@@ -17,7 +17,6 @@ class SignUpForm extends Component{
   handleSubmit(e){
     const {signup} = this.props
     e.preventDefault()
-    console.log(signup)
     signup(this.state)
 
   }
