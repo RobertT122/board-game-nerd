@@ -58,7 +58,7 @@ class LoginModal extends Component{
 
           <button type="submit" className="submit-button">Log In</button>
         </form>
-          <button type="link" onClick={this.demoUser}>Demo User</button>
+          <button className="link" onClick={this.demoUser}>Demo User</button>
         <ErrorsContainer/>
       </>
     )

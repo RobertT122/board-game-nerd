@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
-/* @import url("reset.css");
-@import url("modals.css");
-@import url("forms.css"); */
+
+
+ .link{
+   font-size: small;
+   color:dodgerblue
+ }
+
