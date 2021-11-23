@@ -52,7 +52,7 @@ class LoginModal extends Component{
 
           <button type="submit" className="submit-button">Log In</button>
         </form>
-        <ErrorsContainer/>
+        {/* <ErrorsContainer/> */}
       </>
     )
   }
