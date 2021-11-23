@@ -17,8 +17,6 @@ const MainApp = () => (
 
 const App = (props) => (
   <div>
-    <h1>Welcome</h1>
-
     <Switch>
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <Route component={MainApp} />

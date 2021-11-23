@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import ErrorsContainer from "../errors/errors";
 
 
 class SignUpForm extends Component{
@@ -30,28 +31,42 @@ class SignUpForm extends Component{
   render(){
     
     return(
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="username">username</label>
-        <input
-          id="username"
-          type="text" 
-          value ={this.state.username}
-          onChange={this.handleChange("username")}
-        />
-        <label htmlFor="email">email</label>
-        <input
-          id="email"
-          type="text"
-          onChange={this.handleChange("email")}
-        />
-        <label htmlFor="password">password</label>
-        <input
-          id="password"
-          type="password"
-          onChange={this.handleChange("password")}
-        />
-        <button type="submit">Sign Up</button>
-      </form>
+      <div className="form-container">
+        <h2 className="form-title">Sign up</h2>
+        <form onSubmit={this.handleSubmit}>
+          {/* <div className="form-input"> */}
+            <label htmlFor="username">username</label>
+            <input
+              className="text-input"
+              id="username"
+              type="text" 
+              value ={this.state.username}
+              onChange={this.handleChange("username")}
+            />
+          {/* </div> */}
+          {/* <div className="form-input"> */}
+            <label htmlFor="email">email</label>
+            <input
+              className="text-input"
+              id="email"
+              type="text"
+              onChange={this.handleChange("email")}
+            />
+          {/* </div> */}
+          {/* <div className="form-input"> */}
+            <label htmlFor="password">password</label>
+            <input
+              className="text-input"
+              id="password"
+              type="password"
+              onChange={this.handleChange("password")}
+            />
+          {/* </div> */}
+          <button type="submit" className="submit-button">Sign Up</button>
+        </form>
+        <ErrorsContainer />
+
+      </div>
     )
   }
 }

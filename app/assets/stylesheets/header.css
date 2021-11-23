@@ -1,0 +1,25 @@
+.header{
+  background-color:  rgb(56, 49, 94);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  padding: 10px
+}
+
+.header-buttons > button{
+  background-color: transparent;
+  border-style: none;
+  color: white;
+  padding: 5px;
+  border-radius: 2px;
+
+}
+
+.header-buttons > button:hover {
+  background-color: rgb(34, 30, 59);
+}
+

@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import ErrorsContainer from "../errors/errors";
 
 class LoginModal extends Component{
   constructor(props){
@@ -27,11 +28,12 @@ class LoginModal extends Component{
     
     return(
       <>
-        <h2>Sign In</h2>
+        <h2 className="form-title">Sign In</h2>
         <form onSubmit={this.handleSubmit} className="login-form">
           <div className="form-input">
-            <label htmlFor="username">username</label>
             <input
+              className="text-input"
+              placeholder="username"
               id="username"
               type="text" 
               value ={this.state.username}
@@ -39,8 +41,9 @@ class LoginModal extends Component{
             />
           </div>
           <div className="form-input">
-            <label htmlFor="password">password</label>
             <input
+              placeholder="password"
+              className="text-input"
               id="password"
               type="password" 
               onChange={this.handleChange("password")}
@@ -49,6 +52,7 @@ class LoginModal extends Component{
 
           <button type="submit" className="submit-button">Log In</button>
         </form>
+        <ErrorsContainer/>
       </>
     )
   }

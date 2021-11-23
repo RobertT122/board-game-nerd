@@ -16,7 +16,7 @@ const Session = ({ currentUser, logout, history, showLogin}) => {
   }
 
   const sessionButtons = () => (
-    <div className="login-signup">
+    <div className="header-buttons">
 
       <button onClick={debugLogin}>Login</button>
 
@@ -25,7 +25,7 @@ const Session = ({ currentUser, logout, history, showLogin}) => {
   );
 
   const userDropDown = () => (
-    <div className="user-drop-down">
+    <div className="header-buttons">
       <button onClick={showUserOptions}>{currentUser.username}</button>
       <button onClick={logout}>Log out</button>
     </div>
