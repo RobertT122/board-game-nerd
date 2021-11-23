@@ -11,11 +11,17 @@ class LoginModal extends Component{
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.demoUser = this.demoUser.bind(this)
   }
 
   handleSubmit(e){
     e.preventDefault()
     this.props.login(this.state)
+  }
+
+  demoUser(e){
+    e.preventDefault()
+    this.props.login({username: 'DemoBuddy', password: 'password'})
   }
 
   handleChange(input){
@@ -52,7 +58,8 @@ class LoginModal extends Component{
 
           <button type="submit" className="submit-button">Log In</button>
         </form>
-        {/* <ErrorsContainer/> */}
+          <button type="link" onClick={this.demoUser}>Demo User</button>
+        <ErrorsContainer/>
       </>
     )
   }

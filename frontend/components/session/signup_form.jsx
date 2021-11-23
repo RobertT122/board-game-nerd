@@ -64,7 +64,7 @@ class SignUpForm extends Component{
           {/* </div> */}
           <button type="submit" className="submit-button">Sign Up</button>
         </form>
-        {/* <ErrorsContainer /> */}
+        <ErrorsContainer />
 
       </div>
     )
