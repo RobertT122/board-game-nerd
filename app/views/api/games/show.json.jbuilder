@@ -1,0 +1,1 @@
+json.extract! :id, :name, :designer_name, :description
