@@ -1,6 +1,6 @@
-@games.each do |game|
+json.array! @games do |game|
   json.set! game.id do
-    game.extract! :id, :name
+    json.extract! game, :id, :name
   end
 end
 

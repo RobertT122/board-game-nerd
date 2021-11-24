@@ -23,9 +23,7 @@ export const receiveErrors = errors => ({
 export const signup = user => dispatch => (
   SessionUtil.signup(user)
     .then(
-      user => {
-        return dispatch(receiveCurrentUser(user))
-      }, 
+      user => (dispatch(receiveCurrentUser(user))), 
       errors => (dispatch(receiveErrors(errors.responseJSON)))
     )
 );
