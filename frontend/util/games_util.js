@@ -5,7 +5,7 @@ export const retrieveGame = game_id =>(
   })
 )
 
-export const retrieveAllGames = game_id =>(
+export const retrieveAllGames = () =>(
   $.ajax({
     method: "GET",
     url: 'api/games'

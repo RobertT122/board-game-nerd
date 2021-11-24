@@ -8,6 +8,14 @@
   z-index: 1;
 
   padding: 10px
+
+}
+
+.header-spacer{
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 50px
 }
 
 .header-buttons > button{
