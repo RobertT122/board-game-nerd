@@ -8,106 +8,24 @@
 
 demoUser = User.create({username: 'DemoBuddy', email: 'demo@mail.com', password: 'password'})
 
-games = Game.create([
+Game.create(
   {
     name: 'Catan',
     description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
     designer_name: 'Klaus Teuber'
-  },
+  }
+)
+Game.create(
   {
     name: 'Twilight Imperium',
     description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
     designer_name: 'Christian T. Petersen'
-  },
+  }
+)
+Game.create(
   {
-    name: 'Catan',
+    name: 'BattleShip',
     description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-  {
-    name: 'Catan',
-    description: 'Picture yourself in the era of discoveries: after a long voyage of great deprivation, your ships have finally reached the coast of an uncharted island. Its name shall be Catan!',
-    designer_name: 'Klaus Teuber'
-  },
-
-])
+    designer_name: 'not Klaus Teuber'
+  }
+)

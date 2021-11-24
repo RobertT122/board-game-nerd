@@ -1,9 +1,9 @@
 class Api::GamesController < ApplicationController
-  def show {
-    @game = Game.find_by(id: params[:game_id])
-  }
+  def show 
+    @game = Game.find_by(id: params[:id])
+  end
 
-  def index {
+  def index 
     @games = Game.all
-  }
+  end
 end
