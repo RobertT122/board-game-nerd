@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_184133) do
+ActiveRecord::Schema.define(version: 2021_11_24_215233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 2021_11_23_184133) do
     t.string "designer_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_url", null: false
+    t.integer "playtime_min", limit: 2, null: false
+    t.integer "playtime_max", limit: 2
+    t.integer "player_count_min", limit: 2, null: false
+    t.integer "player_count_max", limit: 2
     t.index ["designer_name"], name: "index_games_on_designer_name"
     t.index ["name"], name: "index_games_on_name", unique: true
   end
