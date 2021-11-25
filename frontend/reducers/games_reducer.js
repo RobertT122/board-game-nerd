@@ -1,6 +1,6 @@
 import { RECIEVE_ALL_GAMES, RECIEVE_GAME } from "../actions/game_actions";
 
-const gamesReducer = (state = [], action) => {
+const gamesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECIEVE_GAME:

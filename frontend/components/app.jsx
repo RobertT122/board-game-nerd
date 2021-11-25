@@ -7,7 +7,7 @@ import SignUpFormContainer from "./session/signup_form_container";
 import Header from "./header/header";
 import ModalContainer from "./modal/modal";
 import Splash from "./splash/splash";
-import GamePage from "./game_page/game_page";
+import GamePage from "./game/game_page";
 
 const MainApp = () => (
   <div>

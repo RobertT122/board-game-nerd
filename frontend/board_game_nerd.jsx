@@ -14,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.login = user => store.dispatch(login(user));
   // window.signup = user => store.dispatch(signup(user));
   // window.logout = () => store.dispatch(logout());
-  window.retgame = game_id => store.dispatch(retrieveGame(game_id))
-  window.retalgames = () => store.dispatch(retrieveAllGames())
+  window.state = store.getState();
+
 
 
   ReactDOM.render(< Root store={store} />, root)

@@ -1,5 +1,5 @@
 import React from "react";
-import AllGamesListContainer from "../game_page/all_games_list";
+import AllGamesListContainer from "../game/all_games_list";
 
 const Splash = () => <AllGamesListContainer />
 

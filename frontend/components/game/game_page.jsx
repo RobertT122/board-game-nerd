@@ -1,10 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { retrieveGame } from "../../actions/game_actions";
+import { withRouter } from "react-router";
 
 class GamePage extends React.Component{
 
   componentDidMount(){
+    console.log("mounting")
     this.props.retrieveGame()
   }
 
@@ -16,7 +18,6 @@ class GamePage extends React.Component{
         <h1>{game.name}</h1>
         <p>{game.description}</p>
         <p>{game.designer_name}</p>
-
       </div>
     )
   }
