@@ -16,8 +16,11 @@ class GamePage extends React.Component{
     return (
       <div>
         <h1>{game.name}</h1>
+        <p>{game.tag_line}</p> 
+        {/* fix the jbuilder file to export at camelcase */}
         <p>{game.description}</p>
         <p>{game.designer_name}</p>
+        <div></div>
       </div>
     )
   }
