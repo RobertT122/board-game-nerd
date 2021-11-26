@@ -5,24 +5,29 @@ import { withRouter } from "react-router";
 
 class GamePage extends React.Component{
 
-  componentDidMount(){
-    console.log("mounting")
-    this.props.retrieveGame()
-  }
+  // componentDidMount(){
+  //   console.log("mounting")
+  //   this.props.retrieveGame()
+  // }
 
   render(){
-    console.log(this.props)
-    const {game} = this.props
-    return (
-      <div>
-        <h1>{game.name}</h1>
-        <p>{game.tag_line}</p> 
-        {/* fix the jbuilder file to export at camelcase */}
-        <p>{game.description}</p>
-        <p>{game.designer_name}</p>
-        <div></div>
-      </div>
-    )
+    if (!this.props.game){
+      this.props.retrieveGame()
+      return <h1>loading</h1>
+    }
+    else {
+      const {game} = this.props
+      return (
+        <div>
+          <h1>{game.name}</h1>
+          <p>{game.tag_line}</p> 
+          {/* fix the jbuilder file to export at camelcase */}
+          <p>{game.description}</p>
+          <p>{game.designer_name}</p>
+          <div></div>
+        </div>
+      )
+    }
   }
 }
 

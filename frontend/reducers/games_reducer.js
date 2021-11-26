@@ -4,7 +4,8 @@ const gamesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECIEVE_GAME:
-      return Object.assign({}, state, {[action.game.id]: action.game})
+      console.log("recieving game")
+      return Object.assign({}, state, {[action.game.id]: action.game} )
     case RECIEVE_ALL_GAMES:
       return Object.assign({}, action.games)
     default:
