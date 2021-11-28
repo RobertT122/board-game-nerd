@@ -43,4 +43,3 @@ export const logout = () => dispatch => (
   SessionUtil.logout()
     .then(() => (dispatch(logoutCurrentUser())))
 );
-``

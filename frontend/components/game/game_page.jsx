@@ -1,42 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { retrieveGame } from "../../actions/game_actions";
-import { withRouter } from "react-router";
+import GameDetails from "./game_details";
 
-class GamePage extends React.Component{
+const GamePage =  (props) => {
 
-  // componentDidMount(){
-  //   console.log("mounting")
-  //   this.props.retrieveGame()
-  // }
+  useEffect(() => {
+    props.retrieveGame().then(console.log("hello"));
+  }, [])
 
-  render(){
-    if (!this.props.game){
-      this.props.retrieveGame()
-      return <h1>loading</h1>
-    }
-    else {
-      const {game} = this.props
-      return (
-        <div>
-          <h1>{game.name}</h1>
-          <p>{game.tag_line}</p> 
-          {/* fix the jbuilder file to export at camelcase */}
-          <p>{game.description}</p>
-          <p>{game.designer_name}</p>
-          <div></div>
-        </div>
-      )
-    }
+  if (props.loading){
+    return <h1>loading...</h1>
   }
+  return <GameDetails game={props.game} />
 }
 
 const mapSTP = (state, ownProps) => ({
-  game: state.entities.games[ownProps.match.params.game_id]
+  game: state.entities.games[ownProps.match.params.game_id],
+  loading: state.ui.loading.gameLoading
 })
 
 const mapDTP = (dispatch, ownProps) => ({
-  retrieveGame:()=> dispatch(retrieveGame(ownProps.match.params.game_id))
+  retrieveGame: ()=> {
+    console.log("sending dispatch")
+    return dispatch(retrieveGame(ownProps.match.params.game_id))
+  }
 })
 
 const GamePageController = connect(mapSTP, mapDTP)(GamePage)
