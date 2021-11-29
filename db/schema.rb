@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_24_222957) do
+ActiveRecord::Schema.define(version: 2021_11_29_003051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2021_11_24_222957) do
   create_table "games", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
-    t.string "designer_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url", null: false
@@ -26,10 +25,10 @@ ActiveRecord::Schema.define(version: 2021_11_24_222957) do
     t.integer "playtime_max", limit: 2
     t.integer "player_count_min", limit: 2, null: false
     t.integer "player_count_max", limit: 2
-    t.string "tag_line"
-    t.integer "year"
-    t.string "artist"
-    t.index ["designer_name"], name: "index_games_on_designer_name"
+    t.string "designer", null: false
+    t.string "tag_line", null: false
+    t.string "artist", null: false
+    t.integer "year", limit: 2, null: false
     t.index ["name"], name: "index_games_on_name", unique: true
   end
 
