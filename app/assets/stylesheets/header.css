@@ -17,8 +17,13 @@
   right: 0;
   margin: 50px
 }
+.header{
+  display: flex;
+  justify-content: space-between;
+  min-width: 200px
+}
 
-.header-buttons > button{
+.header button{
   background-color: transparent;
   border-style: none;
   color: white;
@@ -27,7 +32,7 @@
 
 }
 
-.header-buttons > button:hover {
+.header button:hover {
   background-color: rgb(34, 30, 59);
 }
 

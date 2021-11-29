@@ -6,7 +6,7 @@ import GameDetails from "./game_details";
 const GamePage =  (props) => {
 
   useEffect(() => {
-    props.retrieveGame().then(console.log("hello"));
+    props.retrieveGame();
   }, [])
 
   if (props.loading){
@@ -22,7 +22,6 @@ const mapSTP = (state, ownProps) => ({
 
 const mapDTP = (dispatch, ownProps) => ({
   retrieveGame: ()=> {
-    console.log("sending dispatch")
     return dispatch(retrieveGame(ownProps.match.params.game_id))
   }
 })

@@ -1,13 +1,14 @@
 import React from "react";
-import GamePage from "../game/game_page";
-import LoginModal from "../modal/login_modal";
+import { useHistory } from "react-router";
 import SessionContainer from "./session_container";
 
-const Header = props => (
+const Header = props => {
+  let history = useHistory()
+  return (
   <>
   <div className="header">
     <div className="left-header">
-
+      <button onClick={() => history.push('/')}>Home</button>
     </div>
     <div className="right-header">
     <SessionContainer />
@@ -15,6 +16,7 @@ const Header = props => (
   </div>
   <div className="header-spacer"></div>
   </>
-)
+  )
+}
 
 export default Header
