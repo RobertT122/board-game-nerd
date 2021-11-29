@@ -11,37 +11,55 @@ const GameDetails = (props) => {
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
 
   return (
-    <div>
-      <div className="rating"></div>
-      <h1 className="name"> {game.name} </h1>
-      <span className="year">({game.year})</span>
-      <img src={game.imageUrl} />
-      <p className="tagline">{game.tagline}</p>
-      <div>{playTime}</div>
-      <div>{playerCount}</div>
-      <div>{game.designerName}</div>
-      <div>{game.artist}</div>
+    <>
+      <div className="details-box">
+        <img src={game.imageUrl} />
+        <div>
+          <div className="basic-info">
+            <div className="rating"></div>
+            <h1 className="title"> {game.name} <span className="year">({game.year})</span></h1>
+            <p className="tagLine">{game.tagLine}</p>
+          </div>
+
+          <div className="metrics">
+            <div>{playerCount}</div>
+            <div >{playTime}</div>
+          </div>
+
+          <div className="credits">
+            <div>Designer: {game.designer}</div>
+            <div>Artist: {game.artist}</div>
+          </div>
+          
+        </div>
+      </div>
+      <nav>
+        navbar
+      </nav>
+      <div>
+        context sensative display
       {/* <p>{game.description}</p> */}
-    </div>
+      </div>
+    </>
   )
 
 }
 
 const playerCountString = (min, max)  => {
   if(max){
-    return `${min} - ${max}`
+    return `${min} - ${max} Players`
   }
   if (min === 1){
     return 'Solo'
   }
-  return `${min}`
+  return `${min} Players`
 }
 
 const playtimeString = (min, max) => {
   if(max){
-    return `${min}-${max} minutes`
+    return `${min}-${max} Min`
   }
-  return `${min} minutes`
+  return `${min} Min`
 }
 
 
