@@ -3,8 +3,6 @@ class Api::GamesController < ApplicationController
     @game = Game.find_by(id: params[:id])
     if @game
       render 'api/games/show'
-    else
-      render json: {id: nil}
     end
   end
 

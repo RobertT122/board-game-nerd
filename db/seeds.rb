@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 demoUser = User.create({username: 'DemoBuddy', email: 'demo@mail.com', password: 'password'})
+otherUser = User.create({username: 'OtherBuddy', email: 'other@mail.com', password: 'password'})
+anotherUser = User.create({username: 'AnotherBuddy', email: 'another@mail.com', password: 'password'})
+
 
 Game.create(
   {
@@ -58,5 +61,44 @@ Game.create(
     playtime_min: 20,
     playtime_max: 40,
     image_url: 'battleship.jpeg'
+  }
+)
+
+Review.create(
+  {
+    rating: 10,
+    game_id: 1,
+    body: "One of my favorite Games!",
+    user_id: 1
+  }
+)
+Review.create(
+  {
+    rating: 5,
+    game_id: 1,
+    body: "Its okay...",
+    user_id: 2
+  }
+)
+Review.create(
+  {
+    rating: 6,
+    game_id: 1,
+    user_id: 3
+  }
+)
+Review.create(
+  {
+    rating: 10,
+    game_id: 2,
+    body: "this is a greate Game!",
+    user_id: 1
+  }
+)
+Review.create(
+  {
+    rating: 3,
+    game_id: 2,
+    user_id: 2
   }
 )

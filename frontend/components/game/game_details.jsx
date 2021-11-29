@@ -9,6 +9,7 @@ const GameDetails = (props) => {
   useEffect(()=>{
     setGame(props.game)
   })
+  console.log(props.game)
 
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
@@ -19,7 +20,7 @@ const GameDetails = (props) => {
         <div>
           <div className="basic-info">
             <div className="title-block">
-              <RatingIcon />
+              <RatingIcon avgRating={game.avgRating}/>
               <h1 className="title"> {game.name} <span className="year">({game.year})</span></h1>
             </div>
               <p className="tagLine">{game.tagLine}</p>
