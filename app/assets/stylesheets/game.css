@@ -1,8 +1,13 @@
+.body{
+  margin: 40px;
+  background-color: white;
+  min-width: 400px;
+}
+
 .details-box{
   background-color: black;
   padding: 20px;
   color: white;
-  margin: 10px;
   display: flex;
 }
 
@@ -56,4 +61,56 @@
   padding-top: 5px;
   font-size: small;
   line-height: 1.2;
+}
+
+.hex-icon {
+  width: 50px;
+}
+.review-icon{
+  display: grid;
+}
+
+.review-icon *{
+  grid-area: 1/1/2/2;
+}
+
+.review-icon div{
+  margin-left: 12px;
+  margin-top: 18px;
+  font-size: 20px;
+}
+
+.title-block {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  padding-left: 10px;
+}
+
+.body-content{
+  padding: 20px
+}
+
+.content-selection a{
+  font-size: small;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+  padding: 4px;
+  border-bottom: 2px solid lightgray;
+}
+.content-selection a:hover{
+  color:royalblue;
+}
+
+.content-selection .active{
+  border-color:orangered;
+  border-width: 4px;
+}
+
+.content-selection {
+  display: flex;
+  justify-content: space-around;
 }

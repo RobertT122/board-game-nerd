@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { matchPath, useLocation } from "react-router";
 import ContextSelectionBar from "./context_selection_bar";
 import ContextSwitch from "./context_switch";
+import RatingIcon from "./rating_icon";
 
 
 const GameDetails = (props) => {
@@ -12,17 +12,17 @@ const GameDetails = (props) => {
 
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
-
   return (
-    <>
+    <div className="body">
       <div className="details-box">
         <img src={game.imageUrl} />
         <div>
           <div className="basic-info">
-            <canvas className="rating-hex"></canvas>
-            <div className="rating"></div>
-            <h1 className="title"> {game.name} <span className="year">({game.year})</span></h1>
-            <p className="tagLine">{game.tagLine}</p>
+            <div className="title-block">
+              <RatingIcon />
+              <h1 className="title"> {game.name} <span className="year">({game.year})</span></h1>
+            </div>
+              <p className="tagLine">{game.tagLine}</p>
           </div>
 
           <div className="metrics">
@@ -38,8 +38,10 @@ const GameDetails = (props) => {
         </div>
       </div>
       <ContextSelectionBar name={game.name} id={game.id}/>
-      <ContextSwitch />
-    </>
+      <div className="body-content">
+        <ContextSwitch game={game}/>
+      </div>
+    </div>
   )
 
 }
