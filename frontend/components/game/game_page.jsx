@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { retrieveGame } from "../../actions/game_actions";
 import GameDetails from "./game_details";
@@ -26,6 +26,7 @@ const mapDTP = (dispatch, ownProps) => ({
     return dispatch(retrieveGame(ownProps.match.params.game_id))
   }
 })
+
 
 const GamePageController = connect(mapSTP, mapDTP)(GamePage)
 export default GamePageController

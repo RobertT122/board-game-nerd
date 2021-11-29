@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { matchPath, useLocation } from "react-router";
+import ContextSelectionBar from "./context_selection_bar";
+import ContextSwitch from "./context_switch";
 
 
 const GameDetails = (props) => {
@@ -16,6 +19,7 @@ const GameDetails = (props) => {
         <img src={game.imageUrl} />
         <div>
           <div className="basic-info">
+            <canvas className="rating-hex"></canvas>
             <div className="rating"></div>
             <h1 className="title"> {game.name} <span className="year">({game.year})</span></h1>
             <p className="tagLine">{game.tagLine}</p>
@@ -33,13 +37,8 @@ const GameDetails = (props) => {
           
         </div>
       </div>
-      <nav>
-        navbar
-      </nav>
-      <div>
-        context sensative display
-      {/* <p>{game.description}</p> */}
-      </div>
+      <ContextSelectionBar name={game.name} id={game.id}/>
+      <ContextSwitch />
     </>
   )
 
