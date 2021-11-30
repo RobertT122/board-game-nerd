@@ -1,8 +1,15 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :update_game_rating!
 
   private
+
+  def update_game_rating!(game_id)
+    game = Game.find_by(id: game_id)
+    if(game)
+      game.update_avg_rating!
+    end
+  end
 
   def current_user
     # return nil unless session[:session_token]

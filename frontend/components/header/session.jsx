@@ -11,14 +11,10 @@ const Session = ({ currentUser, logout, history, showLogin}) => {
     return null
   }
 
-  const debugLogin = () =>{
-    return showLogin()
-  }
-
   const sessionButtons = () => (
     <div className="header-buttons">
 
-      <button onClick={debugLogin}>Login</button>
+      <button onClick={showLogin}>Login</button>
 
       <button onClick={() => redirectToSignup()}>Sign up</button>
     </div>

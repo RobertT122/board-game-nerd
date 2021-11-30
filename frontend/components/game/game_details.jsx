@@ -10,6 +10,14 @@ const GameDetails = (props) => {
     setGame(props.game)
   })
 
+  const handleRatingButton = () => {
+    if (props.currentUser){
+      console.log("open review form")
+    }else{
+     props.showLogin()
+    }
+  }
+
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
   return (
@@ -34,7 +42,8 @@ const GameDetails = (props) => {
             <div>Designer: {game.designer}</div>
             <div>Artist: {game.artist}</div>
           </div>
-          
+
+          <button onClick={handleRatingButton}>MyRating</button>
         </div>
       </div>
       <ContextSelectionBar name={game.name} id={game.id}/>
@@ -62,6 +71,7 @@ const playtimeString = (min, max) => {
   }
   return `${min} Min`
 }
+
 
 
 export default GameDetails

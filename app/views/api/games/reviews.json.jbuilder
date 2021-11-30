@@ -1,3 +1,5 @@
+json.key_format! camelize: :lower
+
 json.reviews do
   @game.reviews.each do |review|
     json.set! review.id do

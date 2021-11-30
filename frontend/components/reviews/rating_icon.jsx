@@ -12,7 +12,7 @@ const averageRatingToString = (num) => {
   if(!num){
     return "NA"
   }
-  return `${num.toFixed(1)}`
+  return `${num}`
 }
 
 const renderHexIcon = (num) => {
