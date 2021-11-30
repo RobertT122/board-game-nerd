@@ -9,7 +9,6 @@ const GameDetails = (props) => {
   useEffect(()=>{
     setGame(props.game)
   })
-  console.log(props.game)
 
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
