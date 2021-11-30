@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import RatingIcon from "./rating_icon";
 import { fetchReviews } from "../../actions/review_actions";
 
-const ReviewList = ({users, fetchReviews, reviews, loading}) => {
+const ReviewList = ({users, reviews, loading}) => {
 
   if (loading){
     return <h1>loading...</h1>
@@ -17,7 +17,7 @@ const ReviewList = ({users, fetchReviews, reviews, loading}) => {
             <RatingIcon rating={review.rating}/>
             <div>
               <div>
-              {users[review.user_id].username}
+              {users[review.userId].username}
               </div>
               <p>
                 {review.body}

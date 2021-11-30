@@ -6,30 +6,30 @@ class Api::ReviewsController < ApplicationController
       update_game_rating!(@review[:game_id])
       render "api/reviews/show"
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: @review.errors.full_messages, status: 422
     end
 
   end
 
   def update
     # update average rating
-    @review = Review.find_by(id: params[id])
+    @review = Review.find_by(id: params[:id])
     if @review
       if @review.update(review_params)
         update_game_rating!(@review[:game_id])
         render "api/reviews/show"
       else
-        render json: @user.errors.full_messages, status: 422
+        render json: @review.errors.full_messages, status: 422
       end
     else
-      render json: @user.errors.full_messages, status: 422
+      render json: ['review does not exist'], status: 422
     end
 
   end
 
   def destroy
     # update average rating
-    @review = Review.find_by(id: params[id])
+    @review = Review.find_by(id: params[:id])
     if @review.destroy
       update_game_rating!(@review[:game_id])
       render "api/reviews/show"
