@@ -1,4 +1,4 @@
-import { SHOW_LOGIN_MODAL, HIDE_MODAL } from "../actions/ui_actions";
+import { SHOW_LOGIN_MODAL, HIDE_MODAL, SHOW_REVIEW_FORM } from "../actions/ui_actions";
 
 
 const modalReducer = (state = null, action) => {
@@ -6,6 +6,8 @@ const modalReducer = (state = null, action) => {
   switch(action.type){
     case SHOW_LOGIN_MODAL:
       return "login";
+    case SHOW_REVIEW_FORM:
+      return "reviewForm";
     case HIDE_MODAL:
       return null
     default:
