@@ -9,4 +9,11 @@ class Api::GamesController < ApplicationController
   def index 
     @games = Game.all
   end
+
+  def reviews
+    @game = Game.find_by(id: params[:id])
+    if @game
+      render 'api/games/reviews'
+    end
+  end
 end

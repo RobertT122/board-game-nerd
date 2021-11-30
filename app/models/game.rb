@@ -3,6 +3,10 @@ class Game < ApplicationRecord
   validates :name, uniqueness: true
 
   has_many :reviews, dependent: :destroy
+
+  has_many :reviewers,
+    through: :reviews,
+    source: :user
   
   after_initialize :update_avg_rating!
   # used for pre-seeded reviews

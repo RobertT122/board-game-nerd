@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create, :update, :destroy]
   end
 
+  get "api/games/:id/reviews", to: "api/games#reviews"
+
   root to: "static_pages#root"
 end
