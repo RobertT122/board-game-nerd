@@ -12,7 +12,7 @@ const receiveGameReviews = payload => ({
   payload
 })
 
-export const retrieveGameReviews = game_id => dispatch => {
+export const fetchReviews = game_id => dispatch => {
   dispatch(startLoadingReviews())
   return ReviewsUtil.fetchReviews(game_id)
     .then( payload => dispatch(receiveGameReviews(payload)))

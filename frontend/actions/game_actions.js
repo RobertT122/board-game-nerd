@@ -1,4 +1,5 @@
 import * as GamesUtil from "../util/games_util";
+import { fetchReviews } from "./review_actions";
 
 export const RECIEVE_GAME = "RECIEVE_GAME"
 export const RECIEVE_ALL_GAMES = "RECIEVE_ALL_GAMES"
@@ -27,7 +28,10 @@ const recieveAllGames = games => ({
 export const retrieveGame = game_id => dispatch => {
   dispatch(startLoadingGame())
   return GamesUtil.retrieveGame(game_id)
-    .then( game => dispatch(recieveGame(game)))
+    .then( game => {
+      dispatch(fetchReviews(game.id))
+      dispatch(recieveGame(game))
+    })
 }
 
 export const retrieveAllGames = () => dispatch => {

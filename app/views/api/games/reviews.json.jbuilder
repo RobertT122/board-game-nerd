@@ -1,7 +1,7 @@
 json.reviews do
   @game.reviews.each do |review|
     json.set! review.id do
-      json.extract! review, :user_id, :game_id, :rating, :body
+      json.extract! review, :id, :user_id, :game_id, :rating, :body
     end
   end
 end

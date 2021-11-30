@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ContextSelectionBar from "./context_selection_bar";
 import ContextSwitch from "./context_switch";
-import RatingIcon from "./rating_icon";
+import RatingIcon from "../reviews/rating_icon";
 
 
 const GameDetails = (props) => {
@@ -19,7 +19,7 @@ const GameDetails = (props) => {
         <div>
           <div className="basic-info">
             <div className="title-block">
-              <RatingIcon avgRating={game.avgRating}/>
+              <RatingIcon rating={game.avgRating}/>
               <h1 className="title"> {game.name} <span className="year">({game.year})</span></h1>
             </div>
               <p className="tagLine">{game.tagLine}</p>

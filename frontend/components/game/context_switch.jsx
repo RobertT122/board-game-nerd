@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, matchPath } from "react-router";
+import ReviewListContainer from "../reviews/reviewsList";
 import Overview from "./overview";
 
 const ContextSwitch = ({game}) =>{
@@ -14,7 +15,7 @@ const ContextSwitch = ({game}) =>{
 
   switch (match.params.context){
     case 'reviews':
-      return <p>reviews</p>
+      return <ReviewListContainer game_id={game.id}/>
     default:
       return <Overview description={game.description} />
   }

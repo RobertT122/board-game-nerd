@@ -1,9 +1,9 @@
 import React from "react";
 
-const RatingIcon = ({avgRating}) => (
+const RatingIcon = ({rating}) => (
   <div className="review-icon">
-    {renderHexIcon(avgRating)}
-    <div>{averageRatingToString(avgRating)}</div>
+    {renderHexIcon(rating)}
+    <div>{averageRatingToString(rating)}</div>
   </div>
 )
 
