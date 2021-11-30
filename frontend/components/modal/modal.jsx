@@ -7,6 +7,8 @@ const selectModal = ({activeModal, hideModal}) => {
   switch(activeModal){
     case "login":
       return <LoginModalContainer hide={hideModal}/>
+    case "review-form":
+      return <h1>reviewForm</h1>
     default:
       return null
   }
