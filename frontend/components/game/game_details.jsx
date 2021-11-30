@@ -2,21 +2,13 @@ import React, { useEffect, useState } from "react";
 import ContextSelectionBar from "./context_selection_bar";
 import ContextSwitch from "./context_switch";
 import RatingIcon from "../reviews/rating_icon";
-
+import RatingLauncher from "../reviews/ratingLauncher";
 
 const GameDetails = (props) => {
   let [game, setGame] = useState({})
   useEffect(()=>{
     setGame(props.game)
   })
-
-  const handleRatingButton = () => {
-    if (props.currentUser){
-      console.log("open review form")
-    }else{
-     props.showLogin()
-    }
-  }
 
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
@@ -43,7 +35,7 @@ const GameDetails = (props) => {
             <div>Artist: {game.artist}</div>
           </div>
 
-          <button onClick={handleRatingButton}>MyRating</button>
+          <RatingLauncher/>
         </div>
       </div>
       <ContextSelectionBar name={game.name} id={game.id}/>
