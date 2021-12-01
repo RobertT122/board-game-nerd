@@ -13,15 +13,15 @@ const ReviewList = ({users, reviews, loading}) => {
     <>
   
   <h2 className="context-title">Reviews and Comments</h2>
-      <ul className="context-body">
+      <ul className="context-body review-list">
         {
           Object.values(reviews).map(review => (
             <li key={review.id}>
-              <RatingIcon rating={review.rating}/>
-              <div>
-                <div>
+              <RatingIcon rating={review.rating} className="review-list-icon"/>
+              <div className="review-list-text">
+                <h2>
                 {users[review.userId].username}
-                </div>
+                </h2>
                 <p>
                   {review.body}
                 </p>

@@ -5,6 +5,30 @@
   border-bottom: 1px solid rgba(0, 0, 0, .3);
 }
 .context-body{
+  font-size: small;
   margin-top: 10px;
 }
 
+.review-list > li {
+  display: flex;
+}
+
+.review-list-text {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+.review-list-text > h2 {
+  width: 100%;
+  padding: 10px;
+  color:royalblue;
+  background: rgb(230, 230, 230);
+}
+
+.review-list-text > p {
+  padding-top: 10px;
+}
