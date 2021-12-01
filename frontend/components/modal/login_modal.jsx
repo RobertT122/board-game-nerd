@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import ErrorsContainer from "../errors/errors";
+import { connect } from "react-redux";
+import { login } from "../../actions/session_actions";
 
 class LoginModal extends Component{
   constructor(props){
@@ -65,4 +67,10 @@ class LoginModal extends Component{
   }
 }
 
-export default LoginModal
+const mapDTP = dispatch => ({
+  login: user => dispatch(login(user)),
+})
+
+const LoginModalContainer = connect(null, mapDTP)(LoginModal)
+
+export default LoginModalContainer

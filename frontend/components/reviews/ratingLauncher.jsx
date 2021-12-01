@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { showLoginModal } from "../../actions/ui_actions";
+import { showLoginModal, showReviewForm } from "../../actions/ui_actions";
 
 const RatingLauncher = props => {
   
   const handleRatingButton = () => {
     if (props.currentUser){
-      console.log("open review form")
+      props.showReviewForm()
     }else{
-    props.showLogin()
+      props.showLogin()
     }
   }
   return <button onClick={handleRatingButton}>MyRating</button>
@@ -20,6 +20,7 @@ const mapSTP = (state, ownProps) => ({
 
 const mapDTP = (dispatch, ownProps) => ({
   showLogin: () => dispatch(showLoginModal()),
+  showReviewForm: () => dispatch(showReviewForm()),
 })
 
 const RatingLauncherContainer = connect(mapSTP, mapDTP)(RatingLauncher)
