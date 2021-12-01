@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import LoginModal from "./login_modal";
 import {hideModal} from "../../actions/ui_actions"
 import ReviewFormModal from "./review_form_modal";
+import { useLocation } from "react-router";
 
 const selectModal = ({activeModal, hideModal}) => {
   switch(activeModal){
@@ -16,6 +17,9 @@ const selectModal = ({activeModal, hideModal}) => {
 }
 
 const Modal = props => {
+  let location = useLocation()
+  useEffect(props.hideModal, [location.pathname])
+
   const activeModal = selectModal(props)
   if(activeModal) {
     return(
