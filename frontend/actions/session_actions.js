@@ -39,6 +39,13 @@ export const login = user => dispatch => (
     )
 );
 
+export const fetchCurrentUser = () => dispatch => (
+  SessionUtil.fetchCurrentUser()
+    .then(
+      user => (dispatch(receiveCurrentUser(user)))
+    )
+);
+
 export const logout = () => dispatch => (
   SessionUtil.logout()
     .then(() => (dispatch(logoutCurrentUser())))

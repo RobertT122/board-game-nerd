@@ -19,7 +19,7 @@ class Api::SessionsController < ApplicationController
     end
   end
 
-  def show
+  def currentUser
     @user = current_user
     if @user
       render "api/users/show"
