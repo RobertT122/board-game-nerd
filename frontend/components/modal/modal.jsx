@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import LoginModalContainer from "./login_modal";
+import LoginModal from "./login_modal";
 import {hideModal} from "../../actions/ui_actions"
+import ReviewFormModal from "./review_form_modal";
 
 const selectModal = ({activeModal, hideModal}) => {
   switch(activeModal){
     case "login":
-      return <LoginModalContainer hide={hideModal}/>
-    case "review-form":
-      return <h1 style="height: 500px">reviewForm</h1>
+      return <LoginModal hide={hideModal}/>
+    case "reviewForm":
+      return <ReviewFormModal/>
     default:
       return null
   }

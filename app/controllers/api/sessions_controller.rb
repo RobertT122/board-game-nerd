@@ -18,4 +18,12 @@ class Api::SessionsController < ApplicationController
       render json: ["No User Signed In"], status: 404
     end
   end
+
+  def show
+    @user = current_user
+    if @user
+      render "api/users/show"
+    end
+  end
+
 end
