@@ -9,10 +9,10 @@
     <%= javascript_include_tag 'application' %>
 
     <script type="text/javascript">
-      window.greyHexUrl = "ui_images/hexagon-grey"
-      window.redHexUrl = "ui_images/hexagon-red"
-      window.yellowHexUrl = "ui_images/hexagon-yellow"
-      window.greenHexUrl = "ui_images/hexagon-green"
+      window.greyHexUrl = "<%= image_url("ui_images/hexagon-grey.svg") %>";
+      window.redHexUrl = "<%= image_url("ui_images/hexagon-red.svg") %>";
+      window.yellowHexUrl = "<%= image_url("ui_images/hexagon-yellow.svg") %>";
+      window.greenHexUrl = "<%= image_url("ui_images/hexagon-green.svg") %>";
     </script>
   </head>
 
