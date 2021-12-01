@@ -1,5 +1,6 @@
 import * as ReviewsUtil from "../util/reviews_util"
 import { hideModal } from "./ui_actions"
+import { retrieveGame } from "./game_actions"
 
 export const RECIVE_GAME_REVIEWS = "RECIVE_GAME_REVIEWS"
 export const LOADING_REVIEWS = "LOADING_REVIEWS"
@@ -36,7 +37,10 @@ const recieveReview = review => ({
 export const createReview = review => dispatch => (
   ReviewsUtil.createReview(review)
     .then(
-      review => (dispatch(recieveReview(review))),
+      review => {
+        dispatch(recieveReview(review))
+        dispatch(retrieveGame(Object.values(review)[0].gameId))
+      },
       errors => (dispatch(recieveReviewErrors(errors.responseJSON)))
     )
     .then(
@@ -47,7 +51,10 @@ export const createReview = review => dispatch => (
 export const updateReview = review => dispatch => (
   ReviewsUtil.updateReview(review)
     .then(
-      review => (dispatch(recieveReview(review))),
+      review => {
+        dispatch(recieveReview(review))
+        dispatch(retrieveGame(Object.values(review)[0].gameId))
+      },
       errors => (dispatch(recieveReviewErrors(errors.responseJSON)))
     )
     .then(
@@ -64,7 +71,10 @@ const removeReview = review => ({
 export const deleteReview = review_id => dispatch => (
   ReviewsUtil.deleteReview(review_id)
     .then(
-      review => (dispatch(removeReview(review))),
+      review => {
+        dispatch(recieveReview(review))
+        dispatch(retrieveGame(Object.values(review)[0].gameId))
+      },
       errors => (dispatch(recieveReviewErrors(errors.responseJSON)))
     )
     .then(

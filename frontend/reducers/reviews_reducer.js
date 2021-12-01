@@ -5,11 +5,10 @@ const reviewsReducer = (state = {}, action ) => {
     case ReviewActions.RECIVE_GAME_REVIEWS:
       return Object.assign({}, action.payload.reviews)
     case ReviewActions.RECIEVE_REVIEW:
-      console.log(state)
       return Object.assign({}, state, action.review)
     case ReviewActions.DELETE_REVIEW:
       let newState = Object.assign({}, state)
-      delete newState[action.review.id];
+      delete newState[Object.keys(action.review)[0]];
       return newState;
     default:
       return state

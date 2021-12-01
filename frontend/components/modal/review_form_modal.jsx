@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { connect} from "react-redux";
 import { useLocation, matchPath } from "react-router";
 import { createReview, deleteReview, updateReview } from "../../actions/review_actions";
-
+import { hideModal } from "../../actions/ui_actions";
+import ErrorsContainer from "../errors/errors";
 
 const ReviewFormModal = props => {
 
@@ -14,7 +15,7 @@ const ReviewFormModal = props => {
   let game_id = match.params.game_id
   let currentUserReview = props.findUserReviewId(props.currUserId)
   let action = props.createReview
-  let deleteReview = () => null
+  let deleteReview = props.hideModal
   if (currentUserReview){
     action = props.updateReview
     deleteReview = () => props.deleteReview(currentUserReview.id)
@@ -34,22 +35,26 @@ const ReviewFormModal = props => {
   )
 
   return (
-    <div>
+    <>
+      <h2 className="form-title">My Review</h2>
       <form onSubmit={handleSubmit}>
         <input 
+          className="form-input"
           type="number"
           value={state.rating} 
           onChange={handleChange("rating")}
         />
-        <input 
+        <input
+          className="form-input"
           type="text"
           value={state.body}
           onChange={handleChange("body")}
         />
-        <button type="submit">submit</button>
+        <button type="submit" className="submit-button">submit</button>
       </form>
-      <button onClick={deleteReview}>Delete</button>
-    </div>
+      <button onClick={deleteReview} className="link">Delete</button>
+      <ErrorsContainer/>
+    </>
   )
 }
 
@@ -72,6 +77,7 @@ const mapDTP = dispatch => ({
   deleteReview: review_id => dispatch(deleteReview(review_id)),
   createReview: review => dispatch(createReview(review)),
   updateReview: review => dispatch(updateReview(review)),
+  hideModal: () => dispatch(hideModal())
 })
 
 const ReviewFormModalContainer = connect(mapSTP, mapDTP)(ReviewFormModal)

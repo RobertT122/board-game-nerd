@@ -10,23 +10,27 @@ const ReviewList = ({users, reviews, loading}) => {
   }
 
   return(
-    <ul>
-      {
-        Object.values(reviews).map(review => (
-          <li key={review.id}>
-            <RatingIcon rating={review.rating}/>
-            <div>
+    <>
+  
+  <h2 className="context-title">Reviews and Comments</h2>
+      <ul className="context-body">
+        {
+          Object.values(reviews).map(review => (
+            <li key={review.id}>
+              <RatingIcon rating={review.rating}/>
               <div>
-              {users[review.userId].username}
+                <div>
+                {users[review.userId].username}
+                </div>
+                <p>
+                  {review.body}
+                </p>
               </div>
-              <p>
-                {review.body}
-              </p>
-            </div>
-          </li>
-        ))
-      }
-    </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </>
   )
 }
 

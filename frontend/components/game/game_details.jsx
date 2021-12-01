@@ -6,9 +6,11 @@ import RatingLauncher from "../reviews/ratingLauncher";
 
 const GameDetails = (props) => {
   let [game, setGame] = useState({})
+
   useEffect(()=>{
     setGame(props.game)
-  })
+  }, [props.game])
+
 
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)

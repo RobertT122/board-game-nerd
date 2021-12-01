@@ -4,7 +4,7 @@ import { retrieveGame } from "../../actions/game_actions";
 import GameDetails from "./game_details";
 
 const GamePage =  (props) => {
-
+  
   useEffect(() => {
     props.retrieveGame();
   }, [])
@@ -18,6 +18,7 @@ const GamePage =  (props) => {
 const mapSTP = (state, ownProps) => ({
   game: state.entities.games[ownProps.match.params.game_id],
   loading: state.ui.loading.gameLoading, 
+  reviews: state.entities.reviews
 })
 
 const mapDTP = (dispatch, ownProps) => ({
