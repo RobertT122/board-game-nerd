@@ -34,16 +34,67 @@ const ReviewFormModal = props => {
     e => setState(Object.assign({},state,{[input]: e.currentTarget.value}))
   )
 
+
   return (
     <>
       <h2 className="form-title">My Review</h2>
       <form onSubmit={handleSubmit}>
-        <input 
-          className="form-input"
-          type="number"
-          value={state.rating} 
-          onChange={handleChange("rating")}
-        />
+
+        <div className="form-input rating-stars">
+          <label><span>1</span>
+            <input type="radio" className="star" value="1" name="rating" 
+              onClick={handleChange("rating")} 
+              // onMouseEnter={ e => e.currentTarget.classList.add("checked")} 
+              // onMouseLeave={ e => e.currentTarget.classList.remove("checked")}
+            />
+          </label>
+          <label><span>2</span>
+            <input type="radio" className="star" value="2" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>3</span>
+            <input type="radio" className="star" value="3" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>4</span>
+            <input type="radio" className="star" value="4" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>5</span>
+            <input type="radio" className="star" value="5" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>6</span>
+            <input type="radio" className="star" value="6" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>7</span>
+            <input type="radio" className="star" value="7" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>8</span>
+            <input type="radio" className="star" value="8" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>9</span>
+            <input type="radio" className="star" value="9" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+          <label><span>10</span>
+            <input type="radio" className="star" value="10" name="rating" 
+              onClick={handleChange("rating")} 
+            />
+          </label>
+        </div>
+
         <textarea
           placeholder="comments"
           className="form-input"
