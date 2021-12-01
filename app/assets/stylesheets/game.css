@@ -116,3 +116,10 @@
   display: flex;
   justify-content: space-around;
 }
+
+.rating-launcher {
+  font-size: smaller;
+  padding-top: 30px;
+  text-align: left;
+  text-decoration: underline;
+}

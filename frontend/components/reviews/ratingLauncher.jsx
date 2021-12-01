@@ -11,14 +11,14 @@ const RatingLauncher = props => {
       props.showLogin()
     }
   }
-  return <button onClick={handleRatingButton}>MyRating</button>
+  return <button className="link rating-launcher" onClick={handleRatingButton}>MyRating</button>
 }
 
-const mapSTP = (state, ownProps) => ({
+const mapSTP = state => ({
   currentUser: state.entities.users[state.session.id]
 })
 
-const mapDTP = (dispatch, ownProps) => ({
+const mapDTP = dispatch => ({
   showLogin: () => dispatch(showLoginModal()),
   showReviewForm: () => dispatch(showReviewForm()),
 })

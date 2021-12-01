@@ -44,12 +44,12 @@ const ReviewFormModal = props => {
           value={state.rating} 
           onChange={handleChange("rating")}
         />
-        <input
+        <textarea
+          placeholder="comments"
           className="form-input"
-          type="text"
           value={state.body}
           onChange={handleChange("body")}
-        />
+        ></textarea>
         <button type="submit" className="submit-button">submit</button>
       </form>
       <button onClick={deleteReview} className="link">Delete</button>

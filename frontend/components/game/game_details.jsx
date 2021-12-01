@@ -37,7 +37,7 @@ const GameDetails = (props) => {
             <div>Artist: {game.artist}</div>
           </div>
 
-          <RatingLauncher/>
+          <RatingLauncher />
         </div>
       </div>
       <ContextSelectionBar name={game.name} id={game.id}/>
