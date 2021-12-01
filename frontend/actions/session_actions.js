@@ -42,7 +42,11 @@ export const login = user => dispatch => (
 export const fetchCurrentUser = () => dispatch => (
   SessionUtil.fetchCurrentUser()
     .then(
-      user => (dispatch(receiveCurrentUser(user)))
+      user => {
+        if(user){
+          dispatch(receiveCurrentUser(user))
+        }
+      }
     )
 );
 
