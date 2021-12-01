@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { useLocation } from "react-router";
 import { retrieveGame } from "../../actions/game_actions";
 import GameDetails from "./game_details";
 
 const GamePage =  (props) => {
-  
+  let location = useLocation()
   useEffect(() => {
     props.retrieveGame();
   }, [])
