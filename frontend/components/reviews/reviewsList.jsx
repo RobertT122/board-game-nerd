@@ -10,8 +10,7 @@ const ReviewList = ({users, reviews, loading}) => {
 
   return(
     <>
-  
-  <h2 className="context-title">Reviews and Comments</h2>
+      <h2 className="context-title">Reviews and Comments</h2>
       <ul className="context-body review-list">
         {
           Object.values(reviews).reverse().map(review => (
