@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import RatingIcon from "./rating_icon";
-import { fetchReviews } from "../../actions/review_actions";
 
 const ReviewList = ({users, reviews, loading}) => {
 
   if (loading){
-    return <h1>loading...</h1>
+    return <></>
   }
 
   return(

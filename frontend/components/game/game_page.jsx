@@ -11,7 +11,7 @@ const GamePage =  (props) => {
   }, [])
 
   if (props.loading){
-    return <h1>loading...</h1>
+    return <></>
   }
   return <GameDetails game={props.game} />
 }
