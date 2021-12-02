@@ -9,11 +9,21 @@ class AllGamesList extends React.Component{
     this.props.retrieveAllGames()
   }
 
+  compareRatings(game1, game2){
+    if ((game1.avgRating > game2.avgRating) || (game1.avgRating && !game2.avgRating)){
+      return -1
+    } else if ((game1.avgRating > game2.avgRating) || (!game1.avgRating && game2.avgRating)){
+      return 1
+    } else {
+      return 0
+    }
+  }
+
   render(){
     return (
       <ul>
         {
-          this.props.games.map( game =>(
+          this.props.games.sort(this.compareRatings).map( game =>(
             <li key={game.id}>
               <GameListItem game={game}/>
             </li>
