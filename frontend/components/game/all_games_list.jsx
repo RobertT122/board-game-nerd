@@ -1,19 +1,12 @@
-//file marked for deletion
-//this is a temporary file used to path to game pages
-
-
+import GameListItem from "./game_list_item";
 import { connect } from "react-redux";
 import React from "react";
 import { retrieveAllGames } from "../../actions/game_actions";
-import { Link } from "react-router-dom";
+
 
 class AllGamesList extends React.Component{
   componentDidMount(){
     this.props.retrieveAllGames()
-  }
-
-  gameUrl(game){
-    return `/game/${game.id}/${game.name.toLowerCase().split(" ").join("-")}`
   }
 
   render(){
@@ -22,7 +15,7 @@ class AllGamesList extends React.Component{
         {
           this.props.games.map( game =>(
             <li key={game.id}>
-              <Link to={this.gameUrl(game)} >{game.name}</Link>
+              <GameListItem game={game}/>
             </li>
           ))
         }

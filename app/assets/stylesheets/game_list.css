@@ -1,0 +1,12 @@
+.game-link{
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 500px;
+  margin: 20px;
+  text-decoration: none;
+}
+
+.thumbnail{
+  max-height: 40px;
+}
