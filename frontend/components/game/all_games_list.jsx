@@ -23,9 +23,9 @@ class AllGamesList extends React.Component{
     return (
       <ul>
         {
-          this.props.games.sort(this.compareRatings).map( game =>(
+          this.props.games.sort(this.compareRatings).map( (game, rank) =>(
             <li key={game.id}>
-              <GameListItem game={game}/>
+              <GameListItem game={game} rank={rank+1}/>
             </li>
           ))
         }
