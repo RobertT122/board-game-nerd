@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { useLocation } from "react-router";
 import { retrieveGame } from "../../actions/game_actions";
 import GameDetails from "./game_details";
 
 const GamePage =  (props) => {
-  let location = useLocation()
+
   useEffect(() => {
+    console.log()
     props.retrieveGame();
   }, [])
 
@@ -19,7 +19,7 @@ const GamePage =  (props) => {
 const mapSTP = (state, ownProps) => ({
   game: state.entities.games[ownProps.match.params.game_id],
   loading: state.ui.loading.gameLoading, 
-  reviews: state.entities.reviews
+  recviews: state.entities.reviews
 })
 
 const mapDTP = (dispatch, ownProps) => ({
