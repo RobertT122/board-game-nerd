@@ -15,7 +15,7 @@ This full stack aplication is built using :
 * Postgres for the database
 * React and Redux for front end navigatein and architecture
 
-#Features: 
+## Features: 
 
 * The app features fully functional and encrypted user authentication using 
   * BCrypt for password hashing
