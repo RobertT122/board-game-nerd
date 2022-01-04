@@ -6,7 +6,6 @@ import GameDetails from "./game_details";
 const GamePage =  (props) => {
 
   useEffect(() => {
-    console.log()
     props.retrieveGame();
   }, [])
 
