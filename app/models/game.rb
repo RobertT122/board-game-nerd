@@ -10,6 +10,7 @@ class Game < ApplicationRecord
   
   after_initialize :update_avg_rating!
   # used for pre-seeded reviews
+  has_one_attached :photo
 
   def update_avg_rating!
     # call this function whenever a review is added
