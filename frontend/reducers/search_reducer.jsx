@@ -5,7 +5,7 @@ const searchReducer = (state = [], action) => {
   switch(action.type){
     case RECIEVE_SEARCH:
       console.log(action.games)
-      return action.games.keys || []
+      return Object.keys(action.games)
     default:
       return state;
   }
