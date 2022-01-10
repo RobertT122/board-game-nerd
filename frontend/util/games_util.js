@@ -11,3 +11,11 @@ export const retrieveAllGames = () =>(
     url: 'api/games'
   })
 )
+
+export const quickSearchGames = search =>(
+  $.ajax({
+    mehtod: "GET",
+    url: 'api/games/quickSearch',
+    data: {search}
+  })
+)
