@@ -18,16 +18,17 @@ class Api::GamesController < ApplicationController
   end
 
   def quickSearch
-    @games = Game.where("name LIKE (?)", "%#{params[:partial_name]}%").limit(10)
+    @games = Game.where("LOWER(name) LIKE LOWER(?)", "%#{params.require(:search).permit(:partial_name)[:partial_name]}%").limit(10)
     if @games 
       render 'api/games/index'
     end
   end
 
-  def fullSearch
-    @games = Game.where("name LIKE (?)", "%#{params[:partial_name]}%")
-    if @games 
-      render 'api/games/index'
-    end
-  end
+  # def fullSearch
+  #   @games = Game.where("LOWER(name) LIKE LOWER(?)", "%#{params[:partial_name]}%")
+  #   if @games 
+  #     render 'api/games/index'
+  #   end
+  # end
+
 end
