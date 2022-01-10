@@ -16,4 +16,12 @@ class Api::GamesController < ApplicationController
       render 'api/games/reviews'
     end
   end
+
+  def quickSearch
+    print 'searching'
+    @games = Game.where("name LIKE (?)", "%#{params[:partial_name]}%").limit(10)
+    if @games 
+      render 'api/games/index'
+    end
+  end
 end
