@@ -5,6 +5,7 @@ import configureStore from "./store/store";
 import Root from "./components/root"
 import * as ReviewActions from "./actions/review_actions";
 import { fetchCurrentUser } from "./actions/session_actions";
+import { quickSearchGames } from "./actions/game_actions";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,5 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.deleteReview = review_id => store.dispatch(ReviewActions.deleteReview(review_id))
   window.preloadUser = () => store.dispatch(fetchCurrentUser())
 
+  window.quickSearchGames = partial => store.dispatch(quickSearchGames({partial_name: partial}))
+  
   ReactDOM.render(< Root store={store} />, root)
 })
