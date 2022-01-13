@@ -36,4 +36,32 @@
   background-color: rgb(34, 30, 59);
 }
 
+.search-bar-results {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 5px;
+  text-decoration: none;
+  position: absolute;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.search-bar-results > li {
+  padding: 4px;
+
+}
+
+.search-bar-results > li:nth-child(even){
+  background-color: rgb(230, 230, 230);
+  border-radius: 3px;
+}
+
+.search-bar-results > li > a {
+  padding: 3px
+}
+
+.no-results{
+  color: rgb(180, 180, 180);
+  font-style: italic;
+}
 

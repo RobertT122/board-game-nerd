@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { quickSearchGames } from "../../actions/game_actions";
-
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 //create the actions and reducers for the search bar
 //setup a timeout for updating the search bar results
 //press a key send a result, start timeout, if key is pressed while in timeout queue another fetch for results, ect....
 //store the currently typed results in the state
 //store the timeouts current cycle in the state
-
-const updateSearchBar = () =>{
-  //updates the state so which stores the search
-  //calls requestSearch
-}
 
 const requestSearch = () =>{
   //sends the search to be dispatched if conditions are met
@@ -19,11 +15,33 @@ const requestSearch = () =>{
 }
 
 const SearchBar = (props) => {
-
+  let [state, setState] = useState('')
+  let [hidden, setHidden] = useState(true)
+  useEffect(()=> props.quickSearchGames(state), [state])
+  const updateSearchBar = e => {
+    setState(
+      e.currentTarget.value
+    )
+  }
   return(
-    <form>
-      <input type="text" onChange={updateSearchBar}/>
+    <div onFocus={()=> setHidden(false)} onBlurCaptue={console.log("blur")}>
+    <form className="search-bar-input">
+      <input type="text" onChange={updateSearchBar} />
     </form>
+    {!hidden?(<ul className="search-bar-results" >
+      {props.searchResults.length > 0?(
+        props.searchResults.map(ele => <li key={ele.id}>
+          <Link 
+            to ={`/game/${ele.id}/${ele.name.toLowerCase().split(" ").join("-")}`}
+            onClick={()=>setHidden(true)}
+          >
+            {ele.name}
+          </Link>
+        </li>)
+      ): <li className="no-results">no results</li>}
+    </ul>): <></>}
+    </div>
+
   )
 }
 
@@ -31,7 +49,7 @@ const SearchBar = (props) => {
 
 
 const mapSearchResults = (games, search) => {
-  search.map(id => ({id: id, name: games[id]}))
+  return search.map(id => ({id: id, name: games[id].name}))
 }
 
 const mapSTP = ({entities:{games, search}}) => {
@@ -44,5 +62,5 @@ const mapDTP = dispatch => ({
   quickSearchGames: partial => dispatch(quickSearchGames({partial_name: partial}))
 });
 
-const SearchBarContainer = withRouter(connect(mapSTP, mapDTP)(SearchBar));
+const SearchBarContainer = connect(mapSTP, mapDTP)(SearchBar);
 export default SearchBarContainer

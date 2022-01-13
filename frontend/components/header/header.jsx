@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import SessionContainer from "./session_container";
+import SearchBar from "./seach_bar";
 
 const Header = props => {
   let history = useHistory()
@@ -13,6 +14,7 @@ const Header = props => {
     <div className="right-header">
     <SessionContainer />
     </div>
+    <SearchBar />
   </div>
   <div className="header-spacer"></div>
   </>
