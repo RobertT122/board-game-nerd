@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_014028) do
+ActiveRecord::Schema.define(version: 2022_01_15_023506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2022_01_05_014028) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
   create_table "games", force: :cascade do |t|
     t.string "name", null: false
     t.string "description", null: false
@@ -52,6 +59,16 @@ ActiveRecord::Schema.define(version: 2022_01_05_014028) do
     t.integer "year", limit: 2, null: false
     t.float "avg_rating"
     t.index ["name"], name: "index_games_on_name", unique: true
+  end
+
+  create_table "games_catergories", force: :cascade do |t|
+    t.bigint "game_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_games_catergories_on_category_id"
+    t.index ["game_id", "category_id"], name: "index_games_catergories_on_game_id_and_category_id", unique: true
+    t.index ["game_id"], name: "index_games_catergories_on_game_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -77,4 +94,6 @@ ActiveRecord::Schema.define(version: 2022_01_05_014028) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "games_catergories", "categories"
+  add_foreign_key "games_catergories", "games"
 end
