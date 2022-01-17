@@ -399,3 +399,31 @@ Review.create(
     user_id: 2
   }
 )
+
+Category.create(
+  name: 'strategy'
+)
+
+Category.create(
+  name: 'euro'
+)
+
+Category.create(
+  name: 'abstract'
+)
+
+GamesCatergory.create(
+  game_id: 1,
+  category_id: 1
+)
+
+GamesCatergory.create(
+  game_id: 1,
+  category_id: 2
+)
+
+GamesCatergory.create(
+  game_id: 2,
+  category_id: 3
+)
+
