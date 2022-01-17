@@ -7,7 +7,7 @@ class Game < ApplicationRecord
   has_many :games_catergories, dependent: :destroy
 
   has_many :categories, 
-    through: :games_catergories
+    through: :games_catergories,
     source: :category
 
   has_many :reviewers,
