@@ -17,31 +17,36 @@ const requestSearch = () =>{
 const SearchBar = (props) => {
   let [state, setState] = useState('')
   let [hidden, setHidden] = useState(true)
-  useEffect(()=> props.quickSearchGames(state), [state])
+  useEffect(()=> {
+    if (state){
+      props.quickSearchGames(state)
+    }
+  }, [state])
   const updateSearchBar = e => {
     setState(
       e.currentTarget.value
     )
   }
   return(
-    <div onFocus={()=> setHidden(false)} onBlurCaptue={console.log("blur")}>
-    <form className="search-bar-input">
-      <input type="text" onChange={updateSearchBar} />
-    </form>
-    {!hidden?(<ul className="search-bar-results" >
-      {props.searchResults.length > 0?(
-        props.searchResults.map(ele => <li key={ele.id}>
-          <Link 
-            to ={`/game/${ele.id}/${ele.name.toLowerCase().split(" ").join("-")}`}
-            onClick={()=>setHidden(true)}
-          >
-            {ele.name}
-          </Link>
-        </li>)
-      ): <li className="no-results">no results</li>}
-    </ul>): <></>}
+    <div>
+      <form className="search-bar-input">
+        <input type="text" onChange={updateSearchBar} onClick={()=> setHidden(false)}/>
+      </form>
+      {!hidden?(
+        <div className="search-background" onClick={e=> setHidden(true)}>
+        <ul className="search-bar-results" >
+        {props.searchResults.length > 0?(
+          props.searchResults.map(ele => <li key={ele.id}>
+            <Link 
+              to ={`/game/${ele.id}/${ele.name.toLowerCase().split(" ").join("-")}`}
+              onClick={e=>setHidden(true)}
+            >
+              {ele.name}
+            </Link>
+          </li>)
+        ): <li className="no-results">no results</li>}
+      </ul></div>): <></>}
     </div>
-
   )
 }
 
