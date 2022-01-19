@@ -15,7 +15,7 @@ tagline3 = "This game is very popular and has a very good theme"
 
 description = "This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real.This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real."
 
-game_1 = Game.create(
+Game.create(
   {
     name: 'A Feast for Odin',
     description: description,
@@ -30,9 +30,8 @@ game_1 = Game.create(
     uploader_id: 1,
   }
 )
-game_1.photo.attach(io: File.open("/Users/roberttetrault/Desktop/game_images/a-feast-for-odin.jpg"), filename: 'a-feast-for-odin.jpg')
 
-game_2 = Game.create(
+Game.create(
   {
     name: 'BattleShip',
     description: description,
@@ -47,33 +46,32 @@ game_2 = Game.create(
     uploader_id: 1,
   }
 )
-game_2.photo.attach(io: File.open("/Users/roberttetrault/Desktop/game_images/battleship.jpg"), filename: 'battleship.jpg')
 
-# Game.create(
-#   {
-#     name: 'Catan',
-#     description: description,
-#     designer: 'Klaus Teuber',
-#     artist:" Volkan Baga,
-#     Tanja Donner,
-#     Pete Fenlon,
-#     Jason Hawkins,
-#     Michaela Kienle,
-#     Harald Lieske,
-#     Michael Menzel,
-#     Marion Pott,
-#     Matt Schwabel,
-#     Franz Vohwinkel,
-#     Stephen Graham Walsh ",
-#     year: 1995,
-#     tag_line: tagline2,
-#     player_count_min: 3,
-#     player_count_max: 4,
-#     playtime_min: 60,
-#     playtime_max: 120,
-#     image_url: 'catan.jpg'
-#   }
-# )
+Game.create(
+  {
+    name: 'Catan',
+    description: description,
+    designer: 'Klaus Teuber',
+    artist:" Volkan Baga,
+    Tanja Donner,
+    Pete Fenlon,
+    Jason Hawkins,
+    Michaela Kienle,
+    Harald Lieske,
+    Michael Menzel,
+    Marion Pott,
+    Matt Schwabel,
+    Franz Vohwinkel,
+    Stephen Graham Walsh ",
+    year: 1995,
+    tag_line: tagline2,
+    player_count_min: 3,
+    player_count_max: 4,
+    playtime_min: 60,
+    playtime_max: 120,
+    uploader_id: 2,
+  }
+)
 
 # Game.create(
 #   {

@@ -1,6 +1,10 @@
 json.key_format! camelize: :lower
 
-json.image_url url_for(@game.photo)
+if @game.photo.attached?
+  json.image_url url_for(@game.photo)
+else
+  json.image_url asset_path("no_image.png")
+end
 
 @game.attributes.reject{|k, v| k=='created_at' || k=='updated_at' || k=='image_url' }
   .each do |key, value|
