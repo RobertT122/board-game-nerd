@@ -30,7 +30,7 @@ const SearchBar = (props) => {
   return(
     <div>
       <form className="search-bar-input">
-        <input type="text" onChange={updateSearchBar} onClick={()=> setHidden(false)}/>
+        <input type="text" onChange={updateSearchBar} onClick={()=> setHidden(false)} placeholder="Search"/>
       </form>
       {!hidden?(
         <div className="search-background" onClick={e=> setHidden(true)}>
