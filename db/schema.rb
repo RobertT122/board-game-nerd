@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_15_023506) do
+ActiveRecord::Schema.define(version: 2022_01_19_153049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2022_01_15_023506) do
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_url", null: false
     t.integer "playtime_min", limit: 2, null: false
     t.integer "playtime_max", limit: 2
     t.integer "player_count_min", limit: 2, null: false
@@ -58,7 +57,9 @@ ActiveRecord::Schema.define(version: 2022_01_15_023506) do
     t.string "artist", null: false
     t.integer "year", limit: 2, null: false
     t.float "avg_rating"
+    t.integer "uploader_id", null: false
     t.index ["name"], name: "index_games_on_name", unique: true
+    t.index ["uploader_id"], name: "index_games_on_uploader_id"
   end
 
   create_table "games_catergories", force: :cascade do |t|
