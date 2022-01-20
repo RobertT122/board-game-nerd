@@ -24,6 +24,7 @@
 #  index_games_on_uploader_id  (uploader_id)
 #
 class Game < ApplicationRecord
+
   validates :name, :description, :designer, :artist, :year, :tag_line, :playtime_min, :player_count_min, :uploader_id, presence: true
   validates :name, uniqueness: true
 
@@ -39,12 +40,12 @@ class Game < ApplicationRecord
     through: :reviews,
     source: :user
 
+    
+
   belongs_to :uploader,
     primary_key: :id,
     foreign_key: :uploader_id,
     class_name: :User
-    
-
   
   after_initialize :update_avg_rating!
   # used for pre-seeded reviews
