@@ -41,7 +41,7 @@ class Api::GamesController < ApplicationController
       if @game.destroy
         render json: {message: "Game Destroyed"}
       else
-        render json @game.error.full_messages, status 422
+        render json @game.error.full_messages, status: 422
       end
     else
       render json: ["No game found"], status: 422

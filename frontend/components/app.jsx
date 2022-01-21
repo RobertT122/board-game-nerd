@@ -16,6 +16,7 @@ const MainApp = () => (
     <Header />
     <ModalContainer />
     <Switch>
+      <AuthRoute exact path="/game/new" component={() => <h1>Create new game</h1>} />
       <Route path="/game/:game_id" component={GamePage} />
       <Route path="/" component={Splash} />
     </Switch>

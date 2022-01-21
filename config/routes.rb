@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "api/games/quickSearch", to: "api/games#quickSearch"
-  get "api/games/fullSearch", to: "api/games#fullSearch"
+  # get "api/games/fullSearch", to: "api/games#fullSearch"
 
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy]
-    resources :games, only: [:index, :show, :create, :destroy]
+    resources :games, only: [:index, :show, :create, :update, :destroy]
     resources :reviews, only: [:create, :update, :destroy]
     resources :games_catergories, only: [:create, :destroy]
   end
