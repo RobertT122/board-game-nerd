@@ -7,6 +7,7 @@ class Api::GamesController < ApplicationController
   end
 
   def index 
+    # this will become a depreciated path
     @games = Game.all
   end
 
