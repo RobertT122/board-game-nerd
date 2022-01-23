@@ -8,6 +8,7 @@ class Api::GamesController < ApplicationController
 
   def index 
     # this will become a depreciated path
+    #delete this path once a new splash page is created
     @games = Game.all
   end
 
