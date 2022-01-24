@@ -3,18 +3,26 @@ import { useState } from "react";
 
 
 const Game_Form = (props) =>{
-  let [state, setState] = useState({
+  let [game, setGame] = useState({
+
 
   });
 
   let [range, setRange] = useState({timeLimit: false, playerCount: false});
 
-  const handleInput = e => {
-
-  }
+  const handleInput = (type) => (
+    e => {
+      setGame({[type]: e.currentTarget.value})
+    }
+  )
 
   const handleSubmit = e => {
-
+    e.preventDefalut();
+    const formData = new FormData();
+    Object.keys(game).forEach(key => {
+      formData.append(`game[${key}]`, game[key])
+    });
+    props.submitAction(formData)
   }
 
   return(
@@ -36,5 +44,5 @@ const Game_Form = (props) =>{
   )
 }
 
-export default Game_Form;
+export default GameForm;
 

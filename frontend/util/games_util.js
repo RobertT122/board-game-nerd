@@ -1,3 +1,4 @@
+
 export const retrieveGame = game_id =>(
   $.ajax({
     method: "GET",
@@ -17,5 +18,15 @@ export const quickSearchGames = search =>(
     mehtod: "GET",
     url: 'api/games/quickSearch',
     data: {search}
+  })
+)
+
+export const createNewGame = formData => (
+  $.ajax({
+    url: '/api/games',
+    method: 'POST',
+    data: formData,
+    contentType: false,
+    processData: false
   })
 )
