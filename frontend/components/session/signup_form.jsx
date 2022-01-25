@@ -49,7 +49,7 @@ class SignUpForm extends Component{
             <input
               className="text-input"
               id="email"
-              type="text"
+              type="email"
               onChange={this.handleChange("email")}
             />
           {/* </div> */}

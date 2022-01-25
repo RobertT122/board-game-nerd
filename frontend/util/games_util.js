@@ -28,5 +28,8 @@ export const createNewGame = formData => (
     data: formData,
     contentType: false,
     processData: false
-  })
+  }).then(
+    (res) => console.log(res.message),
+    (res) => console.log(res.responseJSON)
+  )
 )

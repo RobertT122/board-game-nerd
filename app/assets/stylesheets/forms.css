@@ -61,3 +61,8 @@
 .submit-button:hover {
   background-color:dodgerblue;
 }
+
+.game-form{
+  display: flex;
+  flex-direction: column;
+}

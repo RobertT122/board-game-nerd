@@ -14,6 +14,9 @@ class Api::GamesController < ApplicationController
 
   
   def create
+    p "___"
+    print game_params
+    p "___"
     @game = Game.new(game_params)
     if @game.save
       render json: {message: "Game Created"}
