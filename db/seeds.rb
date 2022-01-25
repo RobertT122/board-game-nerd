@@ -15,63 +15,63 @@ tagline3 = "This game is very popular and has a very good theme"
 
 description = "This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real.This is a generic description of a game, with a bunch of words to make it look like its real. This is a generic description of a game, with a bunch of words to make it look like its real."
 
-Game.create(
-  {
-    name: 'A Feast for Odin',
-    description: description,
-    designer: 'Uwe Rosenburg',
-    artist: 'Dennis Lohausen' ,
-    year: 2016,
-    tag_line: tagline1,
-    player_count_min: 1,
-    player_count_max: 4,
-    playtime_min: 30,
-    playtime_max: 120,
-    uploader_id: 1,
-  }
-)
+# Game.create(
+#   {
+#     name: 'A Feast for Odin',
+#     description: description,
+#     designer: 'Uwe Rosenburg',
+#     artist: 'Dennis Lohausen' ,
+#     year: 2016,
+#     tag_line: tagline1,
+#     player_count_min: 1,
+#     player_count_max: 4,
+#     playtime_min: 30,
+#     playtime_max: 120,
+#     uploader_id: 1,
+#   }
+# )
 
-Game.create(
-  {
-    name: 'BattleShip',
-    description: description,
-    designer: 'Clifford Von Wickler',
-    artist:"Taavi Oolberg",
-    year: 1931,
-    tag_line: tagline2,
-    player_count_min: 2,
-    player_count_max: nil,
-    playtime_min: 30,
-    playtime_max: nil,
-    uploader_id: 1,
-  }
-)
+# Game.create(
+#   {
+#     name: 'BattleShip',
+#     description: description,
+#     designer: 'Clifford Von Wickler',
+#     artist:"Taavi Oolberg",
+#     year: 1931,
+#     tag_line: tagline2,
+#     player_count_min: 2,
+#     player_count_max: nil,
+#     playtime_min: 30,
+#     playtime_max: nil,
+#     uploader_id: 1,
+#   }
+# )
 
-Game.create(
-  {
-    name: 'Catan',
-    description: description,
-    designer: 'Klaus Teuber',
-    artist:" Volkan Baga,
-    Tanja Donner,
-    Pete Fenlon,
-    Jason Hawkins,
-    Michaela Kienle,
-    Harald Lieske,
-    Michael Menzel,
-    Marion Pott,
-    Matt Schwabel,
-    Franz Vohwinkel,
-    Stephen Graham Walsh ",
-    year: 1995,
-    tag_line: tagline2,
-    player_count_min: 3,
-    player_count_max: 4,
-    playtime_min: 60,
-    playtime_max: 120,
-    uploader_id: 2,
-  }
-)
+# Game.create(
+#   {
+#     name: 'Catan',
+#     description: description,
+#     designer: 'Klaus Teuber',
+#     artist:" Volkan Baga,
+#     Tanja Donner,
+#     Pete Fenlon,
+#     Jason Hawkins,
+#     Michaela Kienle,
+#     Harald Lieske,
+#     Michael Menzel,
+#     Marion Pott,
+#     Matt Schwabel,
+#     Franz Vohwinkel,
+#     Stephen Graham Walsh ",
+#     year: 1995,
+#     tag_line: tagline2,
+#     player_count_min: 3,
+#     player_count_max: 4,
+#     playtime_min: 60,
+#     playtime_max: 120,
+#     uploader_id: 2,
+#   }
+# )
 
 # Game.create(
 #   {
@@ -412,17 +412,17 @@ Category.create(
   name: 'abstract'
 )
 
-GamesCatergory.create(
+GamesCategory.create(
   game_id: 1,
   category_id: 1
 )
 
-GamesCatergory.create(
+GamesCategory.create(
   game_id: 1,
   category_id: 2
 )
 
-GamesCatergory.create(
+GamesCategory.create(
   game_id: 2,
   category_id: 3
 )

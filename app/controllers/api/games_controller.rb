@@ -12,14 +12,15 @@ class Api::GamesController < ApplicationController
     @games = Game.all
   end
 
+#   def top_ten
+# # returns a sorted list of the top 10 games by rating on the site
+#   end
+
   
   def create
-    p "___"
-    print game_params
-    p "___"
     @game = Game.new(game_params)
     if @game.save
-      render json: {message: "Game Created"}
+      render json: {game_id: @game.id}
     else
       render json: @game.errors.full_messages, status: 422
     end

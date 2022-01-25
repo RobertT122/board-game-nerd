@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :games, only: [:index, :show, :create, :update, :destroy]
     resources :reviews, only: [:create, :update, :destroy]
-    resources :games_catergories, only: [:create, :destroy]
+    resources :categories, only: [:index]
+    resources :games_categories, only: [:create, :destroy]
   end
 
   get "api/games/:id/reviews", to: "api/games#reviews"

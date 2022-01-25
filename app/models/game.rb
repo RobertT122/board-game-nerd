@@ -30,10 +30,10 @@ class Game < ApplicationRecord
 
   has_many :reviews, dependent: :destroy
 
-  has_many :games_catergories, dependent: :destroy
+  has_many :games_categories, dependent: :destroy
 
   has_many :categories, 
-    through: :games_catergories,
+    through: :games_categories,
     source: :category
 
   has_many :reviewers,
