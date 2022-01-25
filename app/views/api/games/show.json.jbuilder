@@ -5,7 +5,8 @@ if @game.photo.attached?
 else
   json.image_url asset_path("no_image.png")
 end
-  json.categories @game.categories.map{|category| category.name}
+
+json.categories @game.categories.map{|category| {name: category.name, id: category.id}}
 
 @game.attributes.reject{|k, v| k=='created_at' || k=='updated_at' || k=='image_url' }
   .each do |key, value|
