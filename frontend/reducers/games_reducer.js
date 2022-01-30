@@ -7,7 +7,11 @@ const gamesReducer = (state = {}, action) => {
       console.log(action.game)
       return Object.assign({}, state, {[action.game.id]: action.game} )
     case RECIEVE_SEARCH:
-      return Object.assign({}, action.games, state)
+      const newState = {}
+      action.gamesList.forEach(game => {
+        return Object.assign(newState, {[game.id]: game}, state)
+      });
+      return newState;
     case RECIEVE_ALL_GAMES:
       return Object.assign({}, action.games)
     default:

@@ -29,9 +29,9 @@ const recieveAllGames = games => ({
 })
 
 
-const recieveSearch = games => ({
+const recieveSearch = gamesList => ({
   type: RECIEVE_SEARCH,
-  games
+  gamesList
 })
 
 export const retrieveGame = game_id => dispatch => {

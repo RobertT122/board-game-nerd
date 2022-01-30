@@ -21,6 +21,13 @@ export const quickSearchGames = search =>(
   })
 )
 
+export const retrieveTopTen = () => (
+  $.ajax({
+    method: "GET",
+    
+  })
+)
+
 export const createNewGame = formData => (
   $.ajax({
     url: '/api/games',

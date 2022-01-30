@@ -12,10 +12,7 @@ class Api::GamesController < ApplicationController
     @games = Game.all
   end
 
-#   def top_ten
-# # returns a sorted list of the top 10 games by rating on the site
-#   end
-
+  
   
   def create
     @game = Game.new(game_params)
@@ -68,22 +65,27 @@ class Api::GamesController < ApplicationController
       :year,
       :uploader_id,
       :photo
-      )
-    end
-    
-    def reviews
-      @game = Game.find_by(id: params[:id])
-      if @game
-        render 'api/games/reviews'
-      end
-    end
-  
-    def quickSearch
-      @games = Game.where("LOWER(name) LIKE LOWER(?)", "%#{params.require(:search).permit(:partial_name)[:partial_name]}%").limit(10)
-      if @games 
-        render 'api/games/index'
-      end
-    end
-    
+    )
   end
   
+  def reviews
+    @game = Game.find_by(id: params[:id])
+    if @game
+      render 'api/games/reviews'
+    end
+  end
+  
+  def quickSearch
+    @games = Game.where("LOWER(name) LIKE LOWER(?)", "%#{params.require(:search).permit(:partial_name)[:partial_name]}%").limit(10)
+    if @games
+      render 'api/games/list'
+    end
+  end
+  
+  def topTen
+  # returns a sorted list of the top 10 games by rating on the sit
+    @games = Game.order('avg_rating DESC NULLS LAST').limit(10)
+    render 'api/games/list'
+  end
+
+end

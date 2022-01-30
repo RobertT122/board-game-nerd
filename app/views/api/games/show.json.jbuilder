@@ -8,7 +8,6 @@ end
 
 json.categories @game.categories.map{|category| {name: category.name, id: category.id}}
 
-@game.attributes.reject{|k, v| k=='created_at' || k=='updated_at' || k=='image_url' }
-  .each do |key, value|
+@game.attributes.reject{|k, v| k=='created_at' || k=='updated_at' }.each do |key, value|
     json.set! key, value
-  end
+end
