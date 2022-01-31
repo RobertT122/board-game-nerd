@@ -50,32 +50,7 @@ class Api::GamesController < ApplicationController
       render json: ["No game found"], status: 422
     end
   end
-  
-  def game_params
-    params.require(:game).permit(
-      :artist,
-      :description,
-      :designer,
-      :name,
-      :player_count_min,
-      :player_count_max,
-      :playtime_min,
-      :playtime_max,
-      :tag_line,
-      :year,
-      :uploader_id,
-      :photo
-    )
-  end
-  
-  #move this into the reviews controller under game and refactor
-  def reviews
-    @game = Game.find_by(id: params[:id])
-    if @game
-      render 'api/games/reviews'
-    end
-  end
-  
+
   def quickSearch
     @games = Game.where("LOWER(name) LIKE LOWER(?)", "%#{params.require(:search).permit(:partial_name)[:partial_name]}%").limit(10)
     if @games
@@ -95,5 +70,25 @@ class Api::GamesController < ApplicationController
       render 'api/games/list'
     end
   end
+
+  private
+  
+  def game_params
+    params.require(:game).permit(
+      :artist,
+      :description,
+      :designer,
+      :name,
+      :player_count_min,
+      :player_count_max,
+      :playtime_min,
+      :playtime_max,
+      :tag_line,
+      :year,
+      :uploader_id,
+      :photo
+    )
+  end
+  
 
 end

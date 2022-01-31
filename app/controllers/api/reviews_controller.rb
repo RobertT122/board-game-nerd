@@ -42,11 +42,19 @@ class Api::ReviewsController < ApplicationController
       render "api/reviews/index"
     end
   end
-
+  
+  def game
+    @reviews = Review.where(game_id: params[:game_id])
+    if @reviews
+      render "api/reviews/index"
+    end
+  end
+  
   private
 
   def review_params
     params.require(:review).permit(:rating, :user_id, :game_id, :body)
   end
+
 
 end

@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   get "api/games/quickSearch", to: "api/games#quickSearch"
   get "api/games/topTen", to: "api/games#topTen"
   get "api/games/user/:user_id", to: "api/games#user"
-  get "api/reviews/user/:user_id", to: "api/reviews#user"
   # get "api/games/fullSearch", to: "api/games#fullSearch"
 
+  get "api/reviews/user/:user_id", to: "api/reviews#user"
+  get "api/reviews/game/:game_id", to: "api/reviews#game"
+  
+  get "api/session/currentuser", to: "api/sessions#currentUser"
+  
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy]
@@ -15,8 +19,6 @@ Rails.application.routes.draw do
     resources :games_categories, only: [:create, :destroy]
   end
 
-  get "api/games/:id/reviews", to: "api/games#reviews"
-  get "api/session/currentuser", to: "api/sessions#currentUser"
 
   root to: "static_pages#root"
 end
