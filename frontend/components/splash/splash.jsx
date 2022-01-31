@@ -10,7 +10,6 @@ import UserReviewsContainer from "./user_reviews";
 const Splash = ({currentUser}) => {
 
   const extendedSplash = () => {
-    console.log(currentUser)
     if (currentUser){
       return (
         <>
@@ -19,7 +18,6 @@ const Splash = ({currentUser}) => {
         </>
       )
     } else{
-      console.log("no extension")
       return <></>
     }
   }

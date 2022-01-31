@@ -1,23 +1,38 @@
 import React from "react";
+import { useEffect } from "react";
 import { connect } from "react-redux";
+import { retrieveTopTen } from "../../actions/game_actions";
+import GameListItem from "../game/game_list_item";
 
 
-const TopTen = props => {
+const TopTen = ({games, retrieveTopTen}) => {
+
+  useEffect(()=>retrieveTopTen(), [])
 
   return (
-    <h1>top ten list</h1>
+    <>
+      <h2 className="splash-title">Top 10 Games</h2>
+      <div className="game-list">
+        <ul>
+          {
+            games.map( (game, rank) =>(
+              <li key={game.id}>
+                <GameListItem game={game} rank={rank+1}/>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </>
   );
 }
 
-const mapSTP = state =>({
-  games: state.games
-  // games: state.list.topTen.map(id => {
-  //   state.games[id]
-  // })
-
+const mapSTP = ({entities}) =>({
+  games: entities.lists.topTen.map(id => entities.games[id] )
 });
+
 const mapDTP = dispatch =>({
-  retrieveTopTen: null
+  retrieveTopTen: () => dispatch(retrieveTopTen())
 });
 
 const TopTenContainer = connect(mapSTP, mapDTP)(TopTen);

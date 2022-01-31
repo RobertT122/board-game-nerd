@@ -57,7 +57,7 @@ const mapSearchResults = (games, search) => {
   return search.map(id => ({id: id, name: games[id].name}))
 }
 
-const mapSTP = ({entities:{games, search}}) => {
+const mapSTP = ({entities:{games, lists:{quickSearch: search}}}) => {
   return {
     searchResults: mapSearchResults(games, search)
   };

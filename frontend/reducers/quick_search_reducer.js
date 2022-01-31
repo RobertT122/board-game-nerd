@@ -1,10 +1,10 @@
-import { RECIEVE_SEARCH } from "../actions/game_actions";
+import { RECIEVE_QUICK_SEARCH } from "../actions/game_actions";
 
-const searchReducer = (state = [], action) => {
+const quickSearchReducer = (state = [], action) => {
 
   Object.freeze(state);
   switch(action.type){
-    case RECIEVE_SEARCH:
+    case RECIEVE_QUICK_SEARCH:
       return action.gamesList.map(game => game.id)
       // return Object.keys(action.games)
     default:
@@ -12,4 +12,4 @@ const searchReducer = (state = [], action) => {
   }
 }
 
-export default searchReducer;
+export default quickSearchReducer;

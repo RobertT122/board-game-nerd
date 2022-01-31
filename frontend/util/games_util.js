@@ -24,7 +24,7 @@ export const quickSearchGames = search =>(
 export const retrieveTopTen = () => (
   $.ajax({
     method: "GET",
-    
+    url: 'api/games/topTen'
   })
 )
 

@@ -7,7 +7,8 @@ export const RECIEVE_ALL_GAMES = "RECIEVE_ALL_GAMES"
 export const LOADING_ALL_GAMES = "LOADING_ALL_GAMES"
 export const LOADING_GAME = "LOADING_GAME"
 
-export const RECIEVE_SEARCH = "RECIEVE_SEARCH"
+export const RECIEVE_QUICK_SEARCH = "RECIEVE_SEARCH"
+export const RECIEVE_TOP_TEN = "RECIEIVE_TOP_TEN"
 
 export const startLoadingGame = () => ({
   type: LOADING_GAME
@@ -30,7 +31,12 @@ const recieveAllGames = games => ({
 
 
 const recieveSearch = gamesList => ({
-  type: RECIEVE_SEARCH,
+  type: RECIEVE_QUICK_SEARCH,
+  gamesList
+})
+
+const recieveTopTen = gamesList => ({
+  type: RECIEVE_TOP_TEN,
   gamesList
 })
 
@@ -54,5 +60,13 @@ export const quickSearchGames = search => dispatch => {
   return GamesUtil.quickSearchGames(search)
     .then(games=>{
       dispatch(recieveSearch(games))
+    })
+}
+
+export const retrieveTopTen = () => dispatch => {
+  dispatch(startLoadingAllGames())
+  return GamesUtil.retrieveTopTen()
+    .then(games=>{
+      dispatch(recieveTopTen(games))
     })
 }
