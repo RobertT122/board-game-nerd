@@ -88,3 +88,9 @@
   display: flex;
   flex-direction: row;
 }
+
+.splash-reviews, .splash-games{
+  background-color: white;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

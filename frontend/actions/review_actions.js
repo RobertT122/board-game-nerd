@@ -82,7 +82,8 @@ export const deleteReview = review_id => dispatch => (
     )
 )
 
-export const fetchUserReviews = user_id => dispatch => (
-  ReviewsUtil.fetchUserReviews(user_id)
+export const fetchUserReviews = user_id => dispatch => {
+  dispatch(startLoadingReviews())
+  return ReviewsUtil.fetchUserReviews(user_id)
     .then( payload => dispatch(receiveGameReviews(payload)))
-)
+}

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { retrieveUserGames } from "../../actions/game_actions";
 
-const UserGames = ({retrieveUserGames, games, userList}) => {
+const UserGames = ({retrieveUserGames, games}) => {
   useEffect(() => retrieveUserGames(), [])
 
   const tester = () => console.log(userList);
@@ -13,10 +13,10 @@ const UserGames = ({retrieveUserGames, games, userList}) => {
   );
 }
 
-const mapSTP = ({entities: {games, lists: {userGames: userList}}}) =>({
-  games,
-  userList
+const mapSTP = ({entities: {games, lists }}) =>({
+  games: lists.userGames.map(id => games[id])
 });
+
 const mapDTP = ( dispatch, ownProps ) =>({
   retrieveUserGames: () => dispatch(retrieveUserGames(ownProps.user.id))
 });

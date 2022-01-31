@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import RatingIcon from "./rating_icon";
 
+
 const ReviewList = ({users, reviews, loading}) => {
 
   if (loading){
