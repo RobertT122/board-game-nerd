@@ -3,9 +3,9 @@ class Api::GamesCategoriesController < ApplicationController
   def create
     @gc = GamesCategory.new(gc_params)
     if @gc.save
-      render json {message: "connection created"}
+      render json: {message: "connection created"}
     else
-      render json @gc.errors.full_messages, status: 422
+      render json: @gc.errors.full_messages, status: 422
     end
 
   end
