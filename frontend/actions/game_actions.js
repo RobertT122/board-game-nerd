@@ -2,10 +2,13 @@ import * as GamesUtil from "../util/games_util";
 import { fetchReviews } from "./review_actions";
 
 export const RECIEVE_GAME = "RECIEVE_GAME"
+
 export const RECIEVE_ALL_GAMES = "RECIEVE_ALL_GAMES"
 
 export const LOADING_ALL_GAMES = "LOADING_ALL_GAMES"
 export const LOADING_GAME = "LOADING_GAME"
+export const LOADING_USER_GAMES = "LOADING_GAMES"
+
 
 export const RECIEVE_QUICK_SEARCH = "RECIEVE_SEARCH"
 export const RECIEVE_TOP_TEN = "RECIEIVE_TOP_TEN"
@@ -14,6 +17,10 @@ export const RECIEVE_USER_GAMES = "RECIEVE_USER_GAMES"
 
 export const startLoadingGame = () => ({
   type: LOADING_GAME
+})
+
+export const startLoadingUserGames = () => ({
+  type: LOADING_USER_GAMES
 })
 
 export const startLoadingAllGames = () => ({
@@ -79,7 +86,7 @@ export const retrieveTopTen = () => dispatch => {
 }
 
 export const retrieveUserGames = user_id => dispatch => {
-  dispatch(startLoadingAllGames())
+  dispatch(startLoadingUserGames())
   return GamesUtil.fetchUserGames(user_id)
     .then(gamesList => {
       dispatch(recieveUserGames(gamesList))

@@ -8,7 +8,7 @@ const UserReviews = ({reviews, games, fetchReviews, loading}) => {
   useEffect(() => fetchReviews(), [])
 
   if (loading){
-    return <h1>loading</h1>
+    return <></>
   }
 
   return (

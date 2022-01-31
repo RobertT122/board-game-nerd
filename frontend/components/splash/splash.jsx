@@ -12,10 +12,10 @@ const Splash = ({currentUser}) => {
   const extendedSplash = () => {
     if (currentUser){
       return (
-        <>
+        <div className="bonus-splash">
           <UserGamesContainer user={currentUser}/>
           <UserReviewsContainer user={currentUser}/>
-        </>
+        </div>
       )
     } else{
       return <></>

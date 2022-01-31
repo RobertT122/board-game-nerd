@@ -11,7 +11,7 @@ const TopTen = ({games, retrieveTopTen}) => {
 
   return (
     <>
-      <h2 className="splash-title">Top 10 Games</h2>
+      <h2 className="splash-games splash-title">Top 10 Games</h2>
       <div className="game-list">
         <ul>
           {

@@ -3,18 +3,35 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { retrieveUserGames } from "../../actions/game_actions";
 
-const UserGames = ({retrieveUserGames, games}) => {
+const UserGames = ({retrieveUserGames, games, loading}) => {
   useEffect(() => retrieveUserGames(), [])
-
-  const tester = () => console.log(userList);
+  if(loading){
+    return <></>
+  }
 
   return (
-    <button onClick={tester}>user games</button>
+    <div className="body-content splash-games">
+      <h1 className="context-title">Your Game Contributions</h1>
+      <ul className="context-body game-boxes">
+        {
+          games.map(game => {
+            console.log(game.name);
+            return(
+              <li key={game.id} className="splash-game-container">
+                <span className="splash-game-name">{game.name}</span>
+                <img className="splash-game-image" src={game.imageUrl} />
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
   );
 }
 
-const mapSTP = ({entities: {games, lists }}) =>({
-  games: lists.userGames.map(id => games[id])
+const mapSTP = ({entities: {games, lists }, ui: {loading}}) =>({
+  games: lists.userGames.map(id => games[id]),
+  loading: loading.userGamesLoading
 });
 
 const mapDTP = ( dispatch, ownProps ) =>({
