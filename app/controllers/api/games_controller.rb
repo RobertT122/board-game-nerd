@@ -68,6 +68,7 @@ class Api::GamesController < ApplicationController
     )
   end
   
+  #move this into the reviews controller under game and refactor
   def reviews
     @game = Game.find_by(id: params[:id])
     if @game
@@ -86,6 +87,13 @@ class Api::GamesController < ApplicationController
   # returns a sorted list of the top 10 games by rating on the sit
     @games = Game.order('avg_rating DESC NULLS LAST').limit(10)
     render 'api/games/list'
+  end
+
+  def user
+    @games = Game.where(uploader_id: params[:user_id])
+    if @games
+      render 'api/games/list'
+    end
   end
 
 end

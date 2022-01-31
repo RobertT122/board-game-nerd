@@ -36,9 +36,17 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
+  def user
+    @reviews = Review.where(user_id: params[:user_id])
+    if @reviews
+      render "api/reviews/index"
+    end
+  end
+
   private
 
   def review_params
     params.require(:review).permit(:rating, :user_id, :game_id, :body)
   end
+
 end

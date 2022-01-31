@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "api/games/quickSearch", to: "api/games#quickSearch"
   get "api/games/topTen", to: "api/games#topTen"
+  get "api/games/user/:user_id", to: "api/games#user"
+  get "api/reviews/user/:user_id", to: "api/reviews#user"
   # get "api/games/fullSearch", to: "api/games#fullSearch"
 
   namespace :api, defaults: {format: :json} do
