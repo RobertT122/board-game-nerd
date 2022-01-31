@@ -83,3 +83,8 @@
 
   z-index: 2;
 }
+
+.right-header{
+  display: flex;
+  flex-direction: row;
+}

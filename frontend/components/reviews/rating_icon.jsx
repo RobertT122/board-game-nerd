@@ -1,11 +1,14 @@
 import React from "react";
 
-const RatingIcon = ({rating}) => (
-  <div className="review-icon">
-    {renderHexIcon(rating)}
-    <div>{averageRatingToString(rating)}</div>
-  </div>
-)
+const RatingIcon = ({rating}) => {
+  rating && !(rating%1 === 0) ? rating = rating.toFixed(1): null;
+  return(
+    <div className="review-icon">
+      {renderHexIcon(rating)}
+      <div>{averageRatingToString(rating)}</div>
+    </div>
+  )
+}
 
 
 const averageRatingToString = (num) => {
