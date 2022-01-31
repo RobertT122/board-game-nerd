@@ -13,8 +13,8 @@ const Splash = ({currentUser}) => {
     if (currentUser){
       return (
         <>
-          <UserGamesContainer/>
-          <UserReviewsContainer/>
+          <UserGamesContainer user={currentUser}/>
+          <UserReviewsContainer user={currentUser}/>
         </>
       )
     } else{

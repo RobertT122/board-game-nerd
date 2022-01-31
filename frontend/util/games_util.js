@@ -40,3 +40,10 @@ export const createNewGame = formData => (
     (res) => console.log(res.responseJSON)
   )
 )
+
+export const fetchUserGames = user_id => (
+  $.ajax({
+    method: "GET",
+    url: `api/games/user/${user_id}`,
+  })
+)

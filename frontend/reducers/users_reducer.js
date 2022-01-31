@@ -11,7 +11,7 @@ const usersReducer = (state = {}, action) => {
         { [action.user.id]: action.user }
       );
     case RECIVE_GAME_REVIEWS:
-      return Object.assign({}, state, action.payload.users)
+      return Object.assign({}, action.payload.users, state)
     default:
       return state;
   }

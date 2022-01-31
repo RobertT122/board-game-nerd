@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { fetchUserReviews } from "../../actions/review_actions";
 
-const UserReviews = props => {
-
+const UserReviews = ({reviews, fetchReviews}) => {
+  useEffect(() => fetchReviews(), [])
   return (
-    <h1>user reviews</h1>
+   <h1>Reviews</h1>
   );
 }
 
-const mapSTP = state =>({
-
+const mapSTP = ({entities: {reviews}}) =>({
+  reviews
 });
-const mapDTP = dispatch =>({
-
+const mapDTP = ( dispatch, ownProps ) =>({
+  fetchReviews: () => dispatch(fetchUserReviews(ownProps.user.id))
 });
 
 const UserReviewsContainer = connect(mapSTP, mapDTP)(UserReviews);

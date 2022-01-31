@@ -30,6 +30,6 @@ export const deleteReview = review_id => (
 export const fetchUserReviews = user_id => (
   $.ajax({
     method: "GET",
-    url: `api/reviews/${user_id}`,
+    url: `api/reviews/user/${user_id}`,
   })
 )
