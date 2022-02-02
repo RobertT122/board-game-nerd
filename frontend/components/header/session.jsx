@@ -1,14 +1,17 @@
 import React from 'react';
+import { useState } from 'react';
 
 
 const Session = ({ currentUser, logout, history, showLogin}) => {
+
+  const [hidden, setHidden] = useState(true);
 
   const redirectToSignup = () => {
     history.push("/signup")
   }
   
   const showUserOptions = () => {
-    return null
+    hidden? setHidden(false) : setHidden(true)
   }
 
   const sessionButtons = () => (
@@ -23,7 +26,7 @@ const Session = ({ currentUser, logout, history, showLogin}) => {
   const userDropDown = () => (
     <div className="header-buttons">
       <button onClick={showUserOptions}>{currentUser.username}</button>
-      <button onClick={logout}>Log out</button>
+      <button onClick={logout} className={hidden? 'logout-hidden' : 'logout'}>Log out</button>
     </div>
   );
 

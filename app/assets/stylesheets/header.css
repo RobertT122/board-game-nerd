@@ -84,6 +84,15 @@
   z-index: 2;
 }
 
+.logout-hidden {
+  display: none;
+}
+.header-buttons .logout{
+  font-size: small;
+  color:rgb(180, 180, 180);
+  background-color: rgb(47, 42, 73);
+}
+
 .right-header{
   display: flex;
   flex-direction: row;
@@ -101,7 +110,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.splash-game-container {
+.splash-game-container a{
   display: flex;
   flex-direction: column;
   margin: 10px;

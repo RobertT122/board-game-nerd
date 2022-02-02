@@ -66,3 +66,76 @@
   display: flex;
   flex-direction: column;
 }
+
+.game-form > * {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px rgb(190, 190, 190) solid;
+  width: 70%;  
+}
+
+.game-form-top{
+  text-align: center;
+}
+
+.game-form > textarea, .game-form > input{
+  min-width: 500px;
+  background-color: white;
+  border-color:rgb(190, 190, 190);
+  border-width: 1px;
+}
+
+.game-form label {
+  padding: 10px;
+  padding-top: 20px;
+  color: grey;
+  font-weight: bolder;
+}
+
+.game-form > textarea {
+  height: 50px;
+  width: 30px
+}
+
+.range-button {
+  margin-left: 3px;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: rgb(112, 112, 112);
+  color: white;
+}
+
+.range-button:hover{
+  background-color: rgb(29, 29, 29);
+}
+
+.game-form  #game-photo-input {
+  display: none;
+}
+
+.game-form  .game-photo-input-label {
+  margin: 30px;
+  background-color: white;
+  border: 1px solid rgb(121, 121, 121);
+  border-radius: 5px;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preview-image {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+
+}

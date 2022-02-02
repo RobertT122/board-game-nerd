@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
   const store = configureStore();
 
-  window.getState = store.getState();
-  window.createReview = review => store.dispatch(ReviewActions.createReview(review))
-  window.updateReview = review => store.dispatch(ReviewActions.updateReview(review))
-  window.deleteReview = review_id => store.dispatch(ReviewActions.deleteReview(review_id))
-  window.preloadUser = () => store.dispatch(fetchCurrentUser())
+  // window.getState = store.getState();
+  // window.createReview = review => store.dispatch(ReviewActions.createReview(review))
+  // window.updateReview = review => store.dispatch(ReviewActions.updateReview(review))
+  // window.deleteReview = review_id => store.dispatch(ReviewActions.deleteReview(review_id))
+  // window.preloadUser = () => store.dispatch(fetchCurrentUser())
 
-  window.quickSearchGames = partial => store.dispatch(quickSearchGames({partial_name: partial}))
+  // window.quickSearchGames = partial => store.dispatch(quickSearchGames({partial_name: partial}))
   
   ReactDOM.render(< Root store={store} />, root)
 })

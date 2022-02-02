@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { retrieveUserGames } from "../../actions/game_actions";
+import { Link } from "react-router-dom";
 
 const UserGames = ({retrieveUserGames, games, loading}) => {
   useEffect(() => retrieveUserGames(), [])
@@ -12,14 +13,17 @@ const UserGames = ({retrieveUserGames, games, loading}) => {
   return (
     <div className="body-content splash-games">
       <h1 className="context-title">Your Game Contributions</h1>
+      <Link to="/game/new" className="link">Upload New Game</Link>
       <ul className="context-body game-boxes">
         {
           games.map(game => {
             console.log(game.name);
             return(
               <li key={game.id} className="splash-game-container">
-                <span className="splash-game-name">{game.name}</span>
-                <img className="splash-game-image" src={game.imageUrl} />
+                <Link to={`/game/${game.id}/${game.name.toLowerCase().split(" ").join("-")}`}>
+                  <span className="splash-game-name">{game.name}</span>
+                  <img className="splash-game-image" src={game.imageUrl} />
+                </Link>
               </li>
             )
           })

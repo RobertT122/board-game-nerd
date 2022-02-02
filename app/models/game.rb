@@ -32,7 +32,7 @@ class Game < ApplicationRecord
 
   has_many :games_categories, dependent: :destroy
 
-  has_many :categories, 
+  has_many :categories,
     through: :games_categories,
     source: :category
 
