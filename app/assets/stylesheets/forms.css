@@ -117,7 +117,9 @@
 .game-form  .game-photo-input-label:hover, .range-button:hover {
   background-color: rgb(245, 245, 245);
 }
-
+.category-input{
+  display: flex;
+}
 .category-button{
   background-color: white;
   border: 1px solid rgb(121, 121, 121);

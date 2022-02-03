@@ -123,7 +123,27 @@
 
 .rating-launcher {
   font-size: smaller;
-  padding-top: 30px;
+  margin-top: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   text-align: left;
   text-decoration: underline;
+}
+
+#category-game-list{
+  display: flex;
+  margin-top: 10px;
+}
+
+.category-title{
+  margin-top: 20px;
+  font-size: small;
+}
+
+.category-game-item{
+  margin-right: 4px;
+  font-size: smaller;
+  background-color: rgb(41, 41, 41);
+  padding: 3px;
+  border-radius: 5px;
 }

@@ -14,13 +14,13 @@ const GamePage =  (props) => {
   if (props.loading){
     return <></>
   }
-  return <GameDetails game={props.game} />
+  return <GameDetails game={props.game} categories={props.categories}/>
 }
 
 const mapSTP = (state, ownProps) => ({
   game: state.entities.games[ownProps.match.params.game_id],
   loading: state.ui.loading.gameLoading, 
-  recviews: state.entities.reviews
+  categories: state.entities.categories, 
 })
 
 const mapDTP = (dispatch, ownProps) => ({

@@ -6,12 +6,16 @@ import RatingLauncher from "../reviews/ratingLauncher";
 
 const GameDetails = (props) => {
   let [game, setGame] = useState({})
+  let [categories, setCategories] = useState([])
 
   useEffect(()=>{
     setGame(props.game)
+    if(props.game && props.game.categories){
+      setCategories(props.game.categories.map(id => props.categories[id]))
+    }
   }, [props.game])
 
-
+  console.log(categories)
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
   return (
@@ -36,6 +40,17 @@ const GameDetails = (props) => {
             <div>Designer: {game.designer}</div>
             <div>Artist: {game.artist}</div>
           </div>
+
+          <label htmlFor="category-game-list" className="category-title">Categories:</label>
+          <ul id="category-game-list">
+            {
+              categories.map(category => (
+                <li  key={category.name} className="category-game-item">
+                  {category.name}
+                </li>
+              ))
+            }
+          </ul>
 
           <RatingLauncher />
         </div>
