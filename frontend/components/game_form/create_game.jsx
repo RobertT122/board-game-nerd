@@ -14,12 +14,12 @@ const CreateGame = props => {
     playtime_max: null,
     playtime_min: 0,
     tag_line: '',
-    year: null,
+    year: 2022,
     photo: null,
     uploader_id: props.uploader_id
   }
 
-  let categories = []
+  let categoryArr = []
 
   let designerArr = ['']
   let artistArr = ['']

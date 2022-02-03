@@ -60,7 +60,6 @@ const removeInputToArr = (type, arr, setArr, game, setGame) => (
       let string = createList(tempArr)
       setGame(Object.assign({}, game, {[type]: string}))
     } else{
-      console.log('less than 1')
       setGame(Object.assign({}, game, {[type]: 'unknown'}))
     }
   }

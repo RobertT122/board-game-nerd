@@ -25,6 +25,7 @@ const Splash = ({currentUser}) => {
   return (
     <div className="splash-body">
       <TopTenContainer/>
+      {/* <CategoryLinksContainer/> */}
       {extendedSplash()}
     </div>
   );

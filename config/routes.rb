@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "api/reviews/game/:game_id", to: "api/reviews#game"
   
   get "api/session/currentuser", to: "api/sessions#currentUser"
+
   
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create]
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :show, :create, :update, :destroy]
     resources :reviews, only: [:create, :update, :destroy]
     resources :categories, only: [:index]
+    resources :games_categories, only: [:create]
   end
 
 

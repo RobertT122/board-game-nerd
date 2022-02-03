@@ -6,10 +6,10 @@ const CategoryList = ({categories, buttonAction}) => {
   return (
     <ul className="category-list">
       {
-        Object.keys(categories).map((category)=> {
+        Object.keys(categories).map((category_key)=> {
           <li key={i}>
-            <button onClick={buttonAction(category)} className={`category-button ${categories[category]? 'active': 'inactive'}`}>
-              {category}
+            <button onClick={buttonAction(category_key)} className={`category-button`}>
+              {categories[category_key].name}
             </button>
           </li>
         })
