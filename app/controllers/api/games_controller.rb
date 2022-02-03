@@ -15,15 +15,12 @@ class Api::GamesController < ApplicationController
   
   
   def create
-    render json: {message: params, game_id: 3}
-    # p game_params
-    # @game = Game.new(game_params)
-    # p @game;
-    # if @game.save
-    #   render json: {game_id: @game.id}
-    # else
-    #   render json: @game.errors.full_messages, status: 422
-    # end
+    @game = Game.new(game_params)
+    if @game.save
+      render json: {game_id: @game.id}
+    else
+      render json: {errors: @game.errors.full_messages}, status: 422
+    end
   end
   
   

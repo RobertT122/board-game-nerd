@@ -1,7 +1,12 @@
 class Api::GamesCategoriesController < ApplicationController
 
   def create
-    render json: {message: gc_params}
+    @gc = GamesCategory.new(gc_params)
+    if @gc.save
+      render json: {message: 'success'}
+    else
+      render json: @gc.errors.full_messages, status: 422
+    end
   end
 
   private

@@ -1,0 +1,38 @@
+.help-box{
+  background-color: white;
+  margin-top: 30px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 15px;
+  border: rgb(200,200,200) 1px solid;
+}
+
+.help-box h1{
+  font-size: x-large;
+  font-weight: bold;
+  border-bottom: rgb(204, 204, 204) 1px solid;
+
+}
+.help-box h2{
+  font-weight: bold;
+}
+
+.help-box p, .help-box div{
+  font-size: medium;
+  border-left: rgb(200,200,200) 3px solid;
+  border-bottom: rgb(200,200,200) 3px solid;
+  border-radius: 6px;
+  background-color: rgb(235, 235, 235);
+  padding: 3px;
+
+}
+
+.help-box li{
+  font-size: small;
+  padding: 3px;
+  padding-left: 12px;
+}
+.help-box span{
+  font-size: small;
+  font-style: italic;
+}

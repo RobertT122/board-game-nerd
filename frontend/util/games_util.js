@@ -38,7 +38,7 @@ export const createNewGame = (formData, categoryArr) => (
     (res) => {
       categoryArr.forEach((id) => updateGamesCategories(id, res.game_id))
     },
-    (res) => console.log(res.responseJSON)
+    (res) => console.log(res.errors)
   )
 )
 

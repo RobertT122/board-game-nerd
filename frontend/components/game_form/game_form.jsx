@@ -7,6 +7,7 @@ import CategoryInput from "./category_input";
 
 const GameForm = (props) =>{
   let [game, setGame] = useState(props.game);
+  console.log(game)
 
   let [categorySet, setCategorySet] = useState(new Set(props.categoryArr))
   let [artistArr, setArtistArr] = useState(props.artistArr)
@@ -31,7 +32,9 @@ const GameForm = (props) =>{
     e.preventDefault();
     const formData = new FormData();
     Object.keys(game).forEach(key => {
-      formData.append(`game[${key}]`, game[key])
+      if(game[key] !== null){
+        formData.append(`game[${key}]`, game[key])
+      }
     });
     const categoryArr = [...categorySet]
     props.submitAction(formData, categoryArr)
