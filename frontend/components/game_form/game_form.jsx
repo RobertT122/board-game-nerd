@@ -1,32 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
+import MultiLineInput from "./multi_line_input";
+import NumRangeInput from "./num_range_input";
 
 
 const GameForm = (props) =>{
   let [game, setGame] = useState(props.game);
+  console.log(game)
   
   let [timeRange, setTimeRange] = useState(false);
-  const toggleTimeRange = e => {
-    e.preventDefault();
-    if(timeRange) {
-      setGame(Object.assign({}, game, {playtime_max: null}));
-      setTimeRange(false);
-    } else {
-      setTimeRange(true);
-    }
-  }
-
   let [countRange, setCountRange] = useState(false);
-  const toggleCountRange = e => {
-    e.preventDefault();
-    if(countRange) {
-      setGame(Object.assign({}, game, {player_count_max: null}));
-      setCountRange(false);
-    } else {
-      setCountRange(true);
-    }
-  }
-
+  let [artistArr, setArtistArr] = useState(props.artistArr)
+  let [designerArr, setDesignerArr] = useState(props.designerArr);
 
 
   const handleInput = (type) => (
@@ -49,43 +34,6 @@ const GameForm = (props) =>{
     props.submitAction(formData)
   }
 
-  const playerCountRange = () => {
-    if (countRange){
-      return(
-        <>
-          <span> - </span>
-          <input 
-            id="game-player-count-max-input"
-            type="number" 
-            min={`${1 + parseInt(game.player_count_min, 10)}`} 
-            max="100" step="1"
-            onChange={handleInput('player_count_max')}
-          />
-        </>
-      )
-    } else {
-      return <></>
-    }
-  }
-
-  const  playTimeRange = () => {
-    if(timeRange){
-      return(
-        <>
-          <span> - </span>
-          <input 
-            id="game-playtime-max-input"
-            type="number" 
-            min={`${1 + parseInt(game.playtime_min, 10)}`} 
-            max="10000" step="1"
-            onChange={handleInput('playtime_max')}
-          />
-        </>
-      )
-    } else {
-      return <></>
-    }
-  }
 
   return(
     <form onSubmit={handleSubmit} className="game-form">
@@ -119,18 +67,24 @@ const GameForm = (props) =>{
 
 
       <label htmlFor="game-designer-input"> Designer(s): </label>
-      <input 
-        id="game-designer-input"
-        type="text" 
-        onChange={handleInput('designer')}
+      <MultiLineInput
+        type="designer"
+        arr={designerArr}
+        setArr={setDesignerArr}
+        game={game}
+        setGame={setGame}
       />
 
       <label htmlFor="game-artist-input"> Artist(s): </label>
-      <input 
-        id="game-artist-input"
-        type="text" 
-        onChange={handleInput('artist')}
+      <MultiLineInput
+        type="artist"
+        arr={artistArr}
+        setArr={setArtistArr}
+        game={game}
+        setGame={setGame}
       />
+
+      
 
       <label htmlFor="game-tagline-input"> Tagline: </label>
       <textarea
@@ -144,39 +98,36 @@ const GameForm = (props) =>{
       />
 
       <label htmlFor="game-player-count-input ">Player Count</label>
-      <div id="game-player-count-input">
-        <input 
-          id="game-player-count-min-input"
-          type="number" 
-          min="1" max="100" step="1"
-          onChange={handleInput('player_count_min')}
+
+      <NumRangeInput
+        type="player_count"
+        min={1} max={100} step={1}
+        rangeBool={countRange}
+        setRangeBool={setCountRange}
+        game={game}
+        setGame={setGame}
         />
-        {
-          playerCountRange()
-        }
-        <button onClick={toggleCountRange} className="range-button">{countRange? "absolute" : "range"}</button>
-      </div>
 
 
       <label htmlFor="game-playtime-input">Play Time (minutes) </label>
-      <div id="game-playtime-input">
-        <input 
-          id="game-playtime-min-input"
-          type="number" 
-          min="1" max="10000" step="1"
-          onChange={handleInput('playtime_min')}
-        />
-        {
-          playTimeRange()
-        }
-        <button onClick={toggleTimeRange} className="range-button">{timeRange? "absolute" : "range"}</button>
-      </div>
+      <NumRangeInput
+        type="playtime"
+        min={0} max={10000} step={15}
+        rangeBool={timeRange}
+        setRangeBool={setTimeRange}
+        game={game}
+        setGame={setGame}
+      />
+
 
       <button type="submit" className="submit-button">Create New game</button>
 
     </form>
+
   )
 }
+
+
 
 export default GameForm;
 

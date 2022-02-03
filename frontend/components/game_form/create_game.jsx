@@ -12,15 +12,18 @@ const CreateGame = props => {
     player_count_min: 1,
     player_count_max: null,
     playtime_max: null,
-    playtime_min: 1,
+    playtime_min: 0,
     tag_line: '',
     year: null,
     photo: null,
     uploader_id: props.uploader_id
   }
 
+  let designerArr = ['']
+  let artistArr = ['']
+
   return(
-    <GameForm submitAction={createNewGame}  game={game}/>
+    <GameForm submitAction={createNewGame}  game={game} designerArr={designerArr} artistArr={artistArr} />
   )
 }
 

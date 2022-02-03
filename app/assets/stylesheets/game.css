@@ -13,7 +13,9 @@
 
 .details-box > img{
   max-height: 200px;
-  max-width: 200px;
+  max-width: 300px;
+  height: auto;
+  width: auto;
 }
 
 .details-box > div{
