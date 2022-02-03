@@ -19,11 +19,19 @@ const CreateGame = props => {
     uploader_id: props.uploader_id
   }
 
+  let categories = []
+
   let designerArr = ['']
   let artistArr = ['']
 
   return(
-    <GameForm submitAction={createNewGame}  game={game} designerArr={designerArr} artistArr={artistArr} />
+    <GameForm 
+      submitAction={createNewGame}  
+      game={game} 
+      designerArr={designerArr} 
+      artistArr={artistArr} 
+      categoryArr={categoryArr}
+    />
   )
 }
 

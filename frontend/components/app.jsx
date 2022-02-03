@@ -11,6 +11,7 @@ import GamePage from "./game/game_page";
 import { fetchCurrentUser } from "../actions/session_actions";
 import { connect } from "react-redux";
 import CreateGame from "./game_form/create_game";
+import { fetchCategories } from "../actions/categories_actions";
 
 const MainApp = () => (
   <div>
@@ -27,7 +28,8 @@ const MainApp = () => (
 
 const App = (props) => {
   useEffect(()=>{
-    props.fetchCurrentUser()
+    props.fetchCurrentUser();
+    props.fetchCategories();
   },[])
 
   return(
@@ -42,7 +44,8 @@ const App = (props) => {
 }
 
 const mapDTP = dispatch =>({
-  fetchCurrentUser: () => dispatch(fetchCurrentUser())
+  fetchCurrentUser: () => dispatch(fetchCurrentUser()), 
+  fetchCategories: () => dispatch(fetchCategories())
 })
 
 const AppContainer = connect(null, mapDTP)(App)

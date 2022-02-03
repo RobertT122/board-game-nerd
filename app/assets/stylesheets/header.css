@@ -119,6 +119,10 @@
   background-color: rgb(230, 230, 230);
 }
 
+.splash-game-container a:hover{
+  background-color: rgb(219, 219, 219);
+}
+
 .splash-game-image {
   max-width: 150px;
   max-height: 150px;

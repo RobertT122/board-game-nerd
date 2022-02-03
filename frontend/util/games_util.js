@@ -1,4 +1,3 @@
-
 export const retrieveGame = game_id =>(
   $.ajax({
     method: "GET",
@@ -28,7 +27,7 @@ export const retrieveTopTen = () => (
   })
 )
 
-export const createNewGame = formData => (
+export const createNewGame = (formData) => (
   $.ajax({
     url: '/api/games',
     method: 'POST',

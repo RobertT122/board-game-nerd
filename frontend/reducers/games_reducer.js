@@ -15,10 +15,15 @@ const gamesReducer = (state = {}, action) => {
       return Object.assign({}, state, {[action.game.id]: action.game} )
     case RECIEVE_USER_GAMES:
     case RECIEVE_TOP_TEN:
+      const newOverRideState = {}
+      action.gamesList.forEach(game => {
+        Object.assign(newOverRideState, {[game.id]: game});
+      });
+      return Object.assign({}, state, newOverRideState);
     case RECIEVE_QUICK_SEARCH:
       const newState = {}
       action.gamesList.forEach(game => {
-        return Object.assign(newState, {[game.id]: game}, state)
+        Object.assign(newState, {[game.id]: game});
       });
       return Object.assign({}, newState, state);
     case RECIEVE_ALL_GAMES:

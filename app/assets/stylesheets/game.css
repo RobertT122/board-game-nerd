@@ -9,13 +9,15 @@
   padding: 20px;
   color: white;
   display: flex;
+  width: auto;
+  height: auto;
 }
 
 .details-box > img{
-  max-height: 200px;
+  max-height: 300px;
   max-width: 300px;
-  height: auto;
-  width: auto;
+  height: max-content;
+  width: max-content;
 }
 
 .details-box > div{

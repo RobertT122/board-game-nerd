@@ -11,3 +11,10 @@ json.categories @game.categories.map{|category| {name: category.name, id: catego
 @game.attributes.reject{|k, v| k=='created_at' || k=='updated_at' }.each do |key, value|
     json.set! key, value
 end
+
+categoriesArr = []
+@game.categories.each do |category|
+  categoriesArr.push(category.id)
+end
+
+json.set! 'categories', categoriesArr

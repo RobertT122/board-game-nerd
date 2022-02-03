@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :show, :create, :update, :destroy]
     resources :reviews, only: [:create, :update, :destroy]
     resources :categories, only: [:index]
-    resources :games_categories, only: [:create, :destroy]
   end
 
 

@@ -6,12 +6,13 @@ import NumRangeInput from "./num_range_input";
 
 const GameForm = (props) =>{
   let [game, setGame] = useState(props.game);
-  console.log(game)
+  let [categoryArr, setCategoryArr] = useState(props.categoryArr)
+  let [artistArr, setArtistArr] = useState(props.artistArr)
+  let [designerArr, setDesignerArr] = useState(props.designerArr);
   
   let [timeRange, setTimeRange] = useState(false);
   let [countRange, setCountRange] = useState(false);
-  let [artistArr, setArtistArr] = useState(props.artistArr)
-  let [designerArr, setDesignerArr] = useState(props.designerArr);
+  
 
 
   const handleInput = (type) => (
@@ -21,7 +22,6 @@ const GameForm = (props) =>{
   )
 
   const handlePhoto = e => {
-    console.log(URL.createObjectURL(e.currentTarget.files[0]))
     return setGame(Object.assign({}, game, {photo: e.currentTarget.files[0]}))
   }
 
@@ -31,7 +31,7 @@ const GameForm = (props) =>{
     Object.keys(game).forEach(key => {
       formData.append(`game[${key}]`, game[key])
     });
-    props.submitAction(formData)
+    props.submitAction({formData, categories: categoryArr})
   }
 
 

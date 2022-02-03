@@ -13,5 +13,11 @@
 #
 class Category < ApplicationRecord
   validates :name, presence: true, uniqueness: true
+
   has_many :games_categories, dependent: :destroy
+
+  has_many :games,
+  through: :games_categories,
+  source: :game
+
 end
