@@ -4,15 +4,7 @@ class Api::GamesController < ApplicationController
     if @game
       render 'api/games/show'
     end
-  end
-
-  def index 
-    # this will become a depreciated path
-    #delete this path once a new splash page is created
-    @games = Game.all
-  end
-
-  
+  end  
   
   def create
     @game = Game.new(game_params)

@@ -9,17 +9,17 @@ Rails.application.routes.draw do
   get "api/reviews/game/:game_id", to: "api/reviews#game"
   
   get "api/session/currentuser", to: "api/sessions#currentUser"
-
   
   namespace :api, defaults: {format: :json} do
     resource :user, only: [:create]
     resource :session, only: [:create, :destroy]
-    resources :games, only: [:index, :show, :create, :update, :destroy]
+    resources :games, only: [:show, :create, :update, :destroy]
     resources :reviews, only: [:create, :update, :destroy]
     resources :categories, only: [:index]
     resources :games_categories, only: [:create]
   end
-
+  
+  delete "/api/games_categories", to: "api/games_categories#destroy"
 
   root to: "static_pages#root"
 end
