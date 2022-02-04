@@ -32,6 +32,10 @@
 
 }
 
+.header .session-header-buttons{
+  margin-right: 9px;
+}
+
 .header button:hover {
   background-color: rgb(34, 30, 59);
 }
@@ -87,10 +91,15 @@
 .logout-hidden {
   display: none;
 }
-.header-buttons .logout{
+.header-buttons .logout, .header .session-header-buttons button{
   font-size: small;
-  color:rgb(180, 180, 180);
+  color:rgb(231, 231, 231);
   background-color: rgb(47, 42, 73);
+  margin-left: 3px;
+}
+
+.header-buttons .logout:hover, .header .session-header-buttons button:hover{
+  background-color: rgb(29, 26, 46);
 }
 
 .right-header{

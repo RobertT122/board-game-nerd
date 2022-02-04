@@ -15,7 +15,7 @@ const Session = ({ currentUser, logout, history, showLogin}) => {
   }
 
   const sessionButtons = () => (
-    <div className="header-buttons">
+    <div className="header-buttons session-header-buttons">
 
       <button onClick={showLogin}>Login</button>
 

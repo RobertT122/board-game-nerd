@@ -13,8 +13,8 @@ const Header = props => {
     </div>
     <div className="right-header">
     <SessionContainer />
-    </div>
     <SearchBar />
+    </div>
   </div>
   <div className="header-spacer"></div>
   </>
