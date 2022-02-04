@@ -17,7 +17,6 @@ const UserGames = ({retrieveUserGames, games, loading}) => {
       <ul className="context-body game-boxes">
         {
           games.map(game => {
-            console.log(game.name);
             return(
               <li key={game.id} className="splash-game-container">
                 <Link to={`/game/${game.id}/${game.name.toLowerCase().split(" ").join("-")}`}>

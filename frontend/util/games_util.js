@@ -27,30 +27,26 @@ export const retrieveTopTen = () => (
   })
 )
 
-export const createNewGame = (formData, categoryArr) => (
+export const createNewGame = formData => (
   $.ajax({
     url: '/api/games',
     method: 'POST',
     data: formData,
     contentType: false,
     processData: false
-  }).then(
-    (res) => {
-      categoryArr.forEach((id) => updateGamesCategories(id, res.game_id))
-    },
-    (res) => console.log(res.errors)
-  )
+  })
 )
 
-const updateGamesCategories = (category_id, game_id) => (
+export const createGamesCategories = (categoryArr, game_id) => {
+  categoryArr.forEach((id) => createGamesCategory(id, game_id))
+}
+
+const createGamesCategory = (category_id, game_id) => (
   $.ajax({
     url: '/api/games_categories',
     data: {categories: {category_id, game_id}},
     method: 'POST'
-  }).then(
-    (res) => console.log(res.message),
-    (res) => console.log(res.responseJSON)
-  )
+  })
 )
 
 export const fetchUserGames = user_id => (

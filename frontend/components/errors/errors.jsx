@@ -5,8 +5,8 @@ import { connect } from "react-redux";
 const Errors = ({errors}) => (
   <ul className="error-list">
     {
-      errors.map(error => (
-        <li className="error_item">
+      errors.map((error, index) => (
+        <li key={index} className="error_item">
           {error}
         </li>
       ))

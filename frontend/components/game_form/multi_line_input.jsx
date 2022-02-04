@@ -69,7 +69,6 @@ const handleMLI = (type, arr, setArr, game, setGame, index) => (
   e => {
     let tempArr = [...arr]
     tempArr[index] = e.currentTarget.value
-    console.log(e.currentTarget.value)
     setArr(tempArr)
     let string = createList(tempArr)
     setGame(Object.assign({}, game, {[type]: string}))

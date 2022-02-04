@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createNewGame } from "../../util/games_util";
+import { createNewGame } from "../../actions/game_actions";
 import GameForm from './game_form'
 
 const CreateGame = props => {
@@ -9,10 +9,10 @@ const CreateGame = props => {
     description: '',
     designer: '',
     name: '',
-    player_count_min: 1,
+    player_count_min: null,
     player_count_max: null,
     playtime_max: null,
-    playtime_min: 0,
+    playtime_min: null,
     tag_line: '',
     year: 2022,
     photo: null,
@@ -26,7 +26,7 @@ const CreateGame = props => {
 
   return(
     <GameForm 
-      submitAction={createNewGame}  
+      submitAction={props.createNewGame}  
       game={game} 
       designerArr={designerArr} 
       artistArr={artistArr} 
@@ -39,6 +39,9 @@ const mapSTP = ({session: {id: uploader_id}}) =>({
   uploader_id
 })
 
-const CreateGameContainer = connect(mapSTP, null)(CreateGame)
+const mapDTP = dispatch => ({
+  createNewGame: (formData, categoryArr) => dispatch(createNewGame(formData, categoryArr))
+})
+const CreateGameContainer = connect(mapSTP, mapDTP)(CreateGame)
 
 export default CreateGameContainer

@@ -15,7 +15,6 @@ const GameDetails = (props) => {
     }
   }, [props.game])
 
-  console.log(categories)
   let playTime = playtimeString(game.playtimeMin, game.playtimeMax)
   let playerCount = playerCountString(game.playerCountMin, game.playerCountMax)
   return (

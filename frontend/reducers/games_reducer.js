@@ -11,7 +11,6 @@ const gamesReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type){
     case RECIEVE_GAME:
-      console.log(action.game)
       return Object.assign({}, state, {[action.game.id]: action.game} )
     case RECIEVE_USER_GAMES:
     case RECIEVE_TOP_TEN:

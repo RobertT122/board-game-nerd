@@ -3,11 +3,11 @@ import { useState } from "react";
 import MultiLineInput from "./multi_line_input";
 import NumRangeInput from "./num_range_input";
 import CategoryInput from "./category_input";
+import ErrorsContainer from "../errors/errors";
 
 
 const GameForm = (props) =>{
   let [game, setGame] = useState(props.game);
-  console.log(game)
 
   let [categorySet, setCategorySet] = useState(new Set(props.categoryArr))
   let [artistArr, setArtistArr] = useState(props.artistArr)
@@ -134,7 +134,7 @@ const GameForm = (props) =>{
         categorySet={categorySet}
         setCategorySet={setCategorySet}
       />
-
+      <ErrorsContainer/>
 
       <button type="submit" className="submit-button">Create New game</button>
 

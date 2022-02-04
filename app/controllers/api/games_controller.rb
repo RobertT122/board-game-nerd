@@ -19,7 +19,7 @@ class Api::GamesController < ApplicationController
     if @game.save
       render json: {game_id: @game.id}
     else
-      render json: {errors: @game.errors.full_messages}, status: 422
+      render json: @game.errors.full_messages, status: 422
     end
   end
   
