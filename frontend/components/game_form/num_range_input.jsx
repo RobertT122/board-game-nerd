@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 
-const NumRangeInput = ({type, min, max, step, game, setGame, rangeBool, setRangeBool}) => {
+const NumRangeInput = props => {
+  let {type, min, max, step, defaultMin} = props;
+
+  const [defaultMax, setDefaultMax] = useState(props.defaultMax)
+
+  const {game, setGame, rangeBool, setRangeBool} = props;
+
   let safeType = type.split('-').join('_')
   let minStr =  `${type}_min`;
   let maxStr = `${type}_max`;
+
+  useEffect(() =>{
+    if(props.defaultMax){
+      setRangeBool(true)
+    }
+  }, [])
 
   const handleInput = (type) => (
     e => {
@@ -16,6 +28,7 @@ const NumRangeInput = ({type, min, max, step, game, setGame, rangeBool, setRange
     e.preventDefault();
     if(rangeBool) {
       setGame(Object.assign({}, game, {[maxStr]: null}));
+      setDefaultMax(null)
       setRangeBool(false);
     } else {
       setRangeBool(true);
@@ -32,6 +45,7 @@ const NumRangeInput = ({type, min, max, step, game, setGame, rangeBool, setRange
             min={`${step + parseInt(game[minStr], 10)}`} 
             max={max} step={step}
             onChange={handleInput(maxStr)}
+            defaultValue={defaultMax}
           />
         </>
       )
@@ -46,6 +60,7 @@ const NumRangeInput = ({type, min, max, step, game, setGame, rangeBool, setRange
         type="number" 
         min={min} max={max} step={step}
         onChange={handleInput(minStr)}
+        defaultValue={defaultMin}
       />
       {
         numRange()

@@ -7,7 +7,6 @@ import RatingLauncher from "../reviews/ratingLauncher";
 const GameDetails = (props) => {
   let [game, setGame] = useState({})
   let [categories, setCategories] = useState([])
-
   useEffect(()=>{
     setGame(props.game)
     if(props.game && props.game.categories){

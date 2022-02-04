@@ -10,7 +10,7 @@ const MultiLineInput = ({type, arr, setArr, game, setGame}) => {
         {
           arr.map( (ele, index) => (
             <li key={index}>
-              <input type="text" onChange={handleMLI(...args, index)}/>
+              <input type="text" onChange={handleMLI(...args, index)} defaultValue={ele}/>
             </li>
           ))
         }

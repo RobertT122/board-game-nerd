@@ -21,7 +21,7 @@ const GameForm = (props) =>{
   let [countRange, setCountRange] = useState(false);
   
   let history = useHistory()
-
+  console.log(game)
   useEffect(()=>{
     if(props.success){
       history.push('/')
@@ -63,7 +63,7 @@ const GameForm = (props) =>{
           id="game-photo-input"
           onChange={handlePhoto}
         />
-        <img src={game.photo? URL.createObjectURL(game.photo) : window.noImage}  className="preview-image"/>
+        <img src={game.photo? URL.createObjectURL(game.photo) : props.defaultPhoto}  className="preview-image"/>
       </div>
 
       <div className="game-form-top">
@@ -72,6 +72,7 @@ const GameForm = (props) =>{
           id="game-name-input"
           type="text" 
           onChange={handleInput('name')}
+          defaultValue={props.game.name}
         />
 
         <label htmlFor="game-year-input"> Year: </label>
@@ -80,7 +81,7 @@ const GameForm = (props) =>{
           type="number" 
           step="1"
           onChange={handleInput('year')}
-          defaultValue={2022}
+          defaultValue={props.game.year}
         />
       </div>
 
@@ -110,12 +111,14 @@ const GameForm = (props) =>{
         id="game-tagline-input"
         onChange={handleInput('tag_line')}
         placeholder="Add a quick description of the game!"
+        defaultValue={props.game.tag_line}
       />
       <label htmlFor="game-description-input"> Description: </label>
       <textarea 
         id="game-description-input"
         onChange={handleInput('description')}
         placeholder="Give a detailed description of game mechanics, theme, history, etc."
+        defaultValue={props.game.description}
       />
 
       <label htmlFor="game-player-count-input ">Player Count</label>
@@ -127,6 +130,8 @@ const GameForm = (props) =>{
         setRangeBool={setCountRange}
         game={game}
         setGame={setGame}
+        defaultMin={props.game.player_count_min}
+        defaultMax={props.game.player_count_max}
         />
 
 
@@ -138,6 +143,8 @@ const GameForm = (props) =>{
         setRangeBool={setTimeRange}
         game={game}
         setGame={setGame}
+        defaultMin={props.game.playtime_min}
+        defaultMax={props.game.playtime_max}
       />
 
       <label htmlFor="game-category-input">Categories</label>

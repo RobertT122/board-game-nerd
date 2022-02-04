@@ -4,9 +4,6 @@ import TopTenContainer from "./top_ten";
 import UserGamesContainer from "./user_games";
 import UserReviewsContainer from "./user_reviews";
 import Help from "./help";
-// import AllGamesListContainer from "../game/all_games_list";
-
-// const Splash = () => <AllGamesListContainer />
 
 const Splash = ({currentUser}) => {
 

@@ -31,6 +31,7 @@ const CreateGame = props => {
       designerArr={designerArr} 
       artistArr={artistArr} 
       categoryArr={categoryArr}
+      defaultPhoto={window.noImage}
     />
   )
 }

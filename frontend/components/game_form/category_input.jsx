@@ -15,20 +15,24 @@ const CategoryInput = ({categorySet, setCategorySet, categories}) => {
       setCategorySet(tempSet)
     }
   )
+  console.log(categorySet)
 
   return (
     <ul className="category-input">
       {
-        Object.keys(categories).map((category_key)=> (
-          <li key={category_key}>
-            <button 
-              onClick={toggleCategory(category_key)} 
-              className={`category-button ${categorySet.has(category_key)? 'active': ''}`}
-            >
-              {categories[category_key].name}
-            </button>
-          </li>
-        ))
+        Object.keys(categories).map((categoryKey)=> {
+          let categoryInt = parseInt(categoryKey, 10)
+          return(
+            <li key={categoryInt}>
+              <button 
+                onClick={toggleCategory(categoryInt)} 
+                className={`category-button ${categorySet.has(categoryInt)? 'active': ''}`}
+              >
+                {categories[categoryKey].name}
+              </button>
+            </li>
+          )
+        })
       }
     </ul>
   )
