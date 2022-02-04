@@ -37,6 +37,21 @@ export const createNewGame = formData => (
   })
 )
 
+export const updateGame = formData => (
+  $.ajax({
+    url: `api/games/${formData.get('game[id]')}`,
+    method: 'PATCH',
+    data: {formData}
+  })
+)
+
+export const deleteGame = game_id => (
+  $.ajax({
+    url: `api/games/${game_id}`,
+    method: "DELETE"
+  })
+)
+
 export const createGamesCategories = (categoryArr, game_id) => {
   categoryArr.forEach((id) => createGamesCategory(id, game_id))
 }
@@ -44,8 +59,20 @@ export const createGamesCategories = (categoryArr, game_id) => {
 const createGamesCategory = (category_id, game_id) => (
   $.ajax({
     url: '/api/games_categories',
-    data: {categories: {category_id, game_id}},
+    data: {category: {category_id, game_id}},
     method: 'POST'
+  })
+)
+
+export const destroyGamesCategories = (categoryArr, game_id) => {
+  categoryArr.forEach((id) => destroyGamesCategory(id, game_id))
+}
+
+const destroyGamesCategory = (category_id, game_id) => (
+  $.ajax({
+    url: '/api/games_categories',
+    data: {category: {category_id, game_id}},
+    method: 'DELETE'
   })
 )
 

@@ -1,5 +1,6 @@
 import * as GameActions from '../actions/game_actions'
 import * as ReviewActions from '../actions/review_actions'
+import * as CategoriesActions from '../actions/categories_actions'
 
 const loadingReducer = (state = {}, action) => {
   Object.freeze(state)
@@ -13,6 +14,11 @@ const loadingReducer = (state = {}, action) => {
       return Object.assign({}, state, {userGamesLoading: false})
     case GameActions.LOADING_USER_GAMES:
       return Object.assign({}, state, {userGamesLoading: true})
+
+    case CategoriesActions.CATEGORIES_LOADING:
+      return Object.assign({}, state, {categoriesLoading: true})
+    case CategoriesActions.RECIEVE_CATEGORIES:
+      return Object.assign({}, state, {categoriesLoading: false})
       
     case GameActions.RECIEVE_TOP_TEN:
     case GameActions.RECIEVE_QUICK_SEARCH:

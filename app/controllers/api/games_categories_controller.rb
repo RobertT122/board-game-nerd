@@ -26,7 +26,7 @@ class Api::GamesCategoriesController < ApplicationController
   private
 
   def gc_params
-    params.require(:categories).permit(:category_id, :game_id)
+    params.require(:category).permit(:category_id, :game_id)
   end
 
 end

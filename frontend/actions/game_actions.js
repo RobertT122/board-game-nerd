@@ -61,12 +61,39 @@ export const receiveErrors = errors => ({
   errors
 });
 
-export const createNewGame = (formData, categoryArr) => dispatch => (
+export const createNewGame = (formData, addCategories) => dispatch => (
   GamesUtil.createNewGame(formData)
     .then(
-      (res) => {
+      res => {
         dispatch(succeeded())
-        GamesUtil.createGamesCategories(categoryArr, res.game_id)
+        GamesUtil.createGamesCategories(addCategories, res.game_id)
+      },
+      res => {
+        dispatch(receiveErrors(res.responseJSON))
+      }
+    )
+)
+
+export const updateGame = (formData, addCategories, deleteCategories) => dispatch => (
+  GamesUtil.updateGame(formData)
+    .then(
+      () => {
+        dispatch(succeeded())
+        let gameId = formData.get('game[id]')
+        GamesUtil.createGamesCategories(addCategories, gameId)
+        GamesUtil.destroyGamesCategories(deleteCategories, gameId)
+      },
+      res => {
+        dispatch(receiveErrors(res.responseJSON))
+      }
+    )
+)
+
+export const deleteGame = (game_id) => dispatch =>(
+  GamesUtil.deleteGame(game_d)
+    .then(
+      res=>{
+        console.log(res.messages)
       },
       res => {
         dispatch(receiveErrors(res.responseJSON))

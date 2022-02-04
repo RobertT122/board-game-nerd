@@ -9,7 +9,7 @@ const GameDetails = (props) => {
   let [categories, setCategories] = useState([])
   useEffect(()=>{
     setGame(props.game)
-    if(props.game && props.game.categories){
+    if(props.game && props.game.categories && Object.keys(props.categories).length > 0){
       setCategories(props.game.categories.map(id => props.categories[id]))
     }
   }, [props.game])

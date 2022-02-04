@@ -41,14 +41,25 @@ const GameForm = (props) =>{
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const formData = new FormData();
     Object.keys(game).forEach(key => {
       if(game[key] !== null){
         formData.append(`game[${key}]`, game[key])
       }
     });
-    const categoryArr = [...categorySet]
-    props.submitAction(formData, categoryArr);
+
+    let addCategories = new Set(categorySet);
+    let deleteCategories = new Set(props.categoryArr);
+    for(let id of categorySet){
+      if(addCategories.has(id) && deleteCategories.has(id)){
+        addCategories.delete(id);
+        deleteCategories.delete(id)
+      }
+    }
+
+    props.submitAction(formData, [...addCategories], [...deleteCategories]);
+    // props.submitAction(formData, [...addCategories], [...deleteCategories]);
   }
 
 
