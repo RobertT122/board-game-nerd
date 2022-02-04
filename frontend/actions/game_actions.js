@@ -1,5 +1,6 @@
 import * as GamesUtil from "../util/games_util";
 import { fetchReviews } from "./review_actions";
+import { succeeded } from "./ui_actions";
 
 export const RECIEVE_GAME = "RECIEVE_GAME"
 export const RECIEVE_GAME_ERRORS = "RECIEVE_GAME_ERRORS"
@@ -64,10 +65,11 @@ export const createNewGame = (formData, categoryArr) => dispatch => (
   GamesUtil.createNewGame(formData)
     .then(
       (res) => {
-        return GamesUtil.createGamesCategories(categoryArr, res.game_id)
+        dispatch(succeeded())
+        GamesUtil.createGamesCategories(categoryArr, res.game_id)
       },
       res => {
-        return dispatch(receiveErrors(res.responseJSON))
+        dispatch(receiveErrors(res.responseJSON))
       }
     )
 )

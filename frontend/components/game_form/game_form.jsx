@@ -4,6 +4,10 @@ import MultiLineInput from "./multi_line_input";
 import NumRangeInput from "./num_range_input";
 import CategoryInput from "./category_input";
 import ErrorsContainer from "../errors/errors";
+import { resetSuccess } from "../../actions/ui_actions";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
 
 const GameForm = (props) =>{
@@ -16,13 +20,20 @@ const GameForm = (props) =>{
   let [timeRange, setTimeRange] = useState(false);
   let [countRange, setCountRange] = useState(false);
   
+  let history = useHistory()
 
+  useEffect(()=>{
+    if(props.success){
+      history.push('/')
+    }
+  }, [props.success])
 
   const handleInput = (type) => (
     e => {
       setGame(Object.assign({}, game, {[type]: e.currentTarget.value}))
     }
   )
+
 
   const handlePhoto = e => {
     return setGame(Object.assign({}, game, {photo: e.currentTarget.files[0]}))
@@ -37,7 +48,7 @@ const GameForm = (props) =>{
       }
     });
     const categoryArr = [...categorySet]
-    props.submitAction(formData, categoryArr)
+    props.submitAction(formData, categoryArr);
   }
 
 
@@ -144,6 +155,13 @@ const GameForm = (props) =>{
 }
 
 
+const mapSTP = state =>({
+  success: state.ui.success
+})
+const mapDTP = dispatch =>({
+  resetSuccess: ()=>dispatch(resetSuccess())
+})
 
-export default GameForm;
+const GameFormContainer = connect(mapSTP, mapDTP)(GameForm)
+export default GameFormContainer;
 

@@ -13,7 +13,9 @@ const loadingReducer = (state = {}, action) => {
       return Object.assign({}, state, {userGamesLoading: false})
     case GameActions.LOADING_USER_GAMES:
       return Object.assign({}, state, {userGamesLoading: true})
-
+      
+    case GameActions.RECIEVE_TOP_TEN:
+    case GameActions.RECIEVE_QUICK_SEARCH:
     case GameActions.RECIEVE_ALL_GAMES:
       return Object.assign({}, state, {allGamesLoading: false})
     case GameActions.LOADING_ALL_GAMES:
