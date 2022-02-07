@@ -39,15 +39,17 @@ export const createNewGame = formData => (
 
 export const updateGame = formData => (
   $.ajax({
-    url: `api/games/${formData.get('game[id]')}`,
+    url: `/api/games/${formData.get('game[id]')}`,
     method: 'PATCH',
-    data: {formData}
+    data: formData,
+    contentType: false,
+    processData: false
   })
 )
 
 export const deleteGame = game_id => (
   $.ajax({
-    url: `api/games/${game_id}`,
+    url: `/api/games/${game_id}`,
     method: "DELETE"
   })
 )

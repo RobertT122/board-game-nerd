@@ -4,7 +4,7 @@ import MultiLineInput from "./multi_line_input";
 import NumRangeInput from "./num_range_input";
 import CategoryInput from "./category_input";
 import ErrorsContainer from "../errors/errors";
-import { resetSuccess } from "../../actions/ui_actions";
+import { resetSuccess, showDeleteForm } from "../../actions/ui_actions";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useEffect } from "react";
@@ -21,10 +21,10 @@ const GameForm = (props) =>{
   let [countRange, setCountRange] = useState(false);
   
   let history = useHistory()
-  console.log(game)
   useEffect(()=>{
     if(props.success){
-      history.push('/')
+      history.push('/spash')
+      props.resetSuccess()
     }
   }, [props.success])
 
@@ -34,9 +34,29 @@ const GameForm = (props) =>{
     }
   )
 
+  const deleteButton = <button
+    className="delete-launcher"
+    onClick={e => {
+      e.preventDefault()
+      props.showDeleteForm(props.game.id)
+    }}
+  >Delete</button>
 
+
+  
   const handlePhoto = e => {
     return setGame(Object.assign({}, game, {photo: e.currentTarget.files[0]}))
+  }
+  
+  const resetPhoto = e => {
+    return setGame(Object.assign({}, game, {photo: null}))
+  }
+
+  const photoResetButton = () =>{
+    if (game.photo){
+      return <button className="photo-reset" onClick={resetPhoto}>RESET</button>
+    }
+    return <></>
   }
 
   const handleSubmit = e => {
@@ -54,7 +74,7 @@ const GameForm = (props) =>{
     for(let id of categorySet){
       if(addCategories.has(id) && deleteCategories.has(id)){
         addCategories.delete(id);
-        deleteCategories.delete(id)
+        deleteCategories.delete(id);
       }
     }
 
@@ -75,6 +95,7 @@ const GameForm = (props) =>{
           onChange={handlePhoto}
         />
         <img src={game.photo? URL.createObjectURL(game.photo) : props.defaultPhoto}  className="preview-image"/>
+        {photoResetButton()}
       </div>
 
       <div className="game-form-top">
@@ -165,7 +186,10 @@ const GameForm = (props) =>{
       />
       <ErrorsContainer/>
 
-      <button type="submit" className="submit-button">Create New game</button>
+      <button type="submit" className="submit-button">{props.submitName}</button>
+      {
+        (props.submitName === "Update Game")?deleteButton:<></>
+      }
 
     </form>
 
@@ -177,7 +201,8 @@ const mapSTP = state =>({
   success: state.ui.success
 })
 const mapDTP = dispatch =>({
-  resetSuccess: ()=>dispatch(resetSuccess())
+  resetSuccess: ()=>dispatch(resetSuccess()),
+  showDeleteForm: gameId=>dispatch(showDeleteForm(gameId))
 })
 
 const GameFormContainer = connect(mapSTP, mapDTP)(GameForm)

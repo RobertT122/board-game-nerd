@@ -4,6 +4,7 @@ import LoginModal from "./login_modal";
 import {hideModal} from "../../actions/ui_actions"
 import ReviewFormModal from "./review_form_modal";
 import { useLocation } from "react-router";
+import DeleteModal from "./delete_modal";
 
 const selectModal = ({activeModal, hideModal}) => {
   switch(activeModal){
@@ -11,6 +12,8 @@ const selectModal = ({activeModal, hideModal}) => {
       return <LoginModal hide={hideModal}/>
     case "reviewForm":
       return <ReviewFormModal/>
+    case "deleteForm":
+      return <DeleteModal hide={hideModal}/>
     default:
       return null
   }
@@ -36,7 +39,7 @@ const Modal = props => {
 }
 
 const mapSTP = state => ({
-  activeModal: state.ui.modal
+  activeModal: state.ui.modal.type
 })
 
 const mapDTP = dispatch => ({

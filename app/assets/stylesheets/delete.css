@@ -1,0 +1,57 @@
+.game-form .delete-launcher{
+  margin: 10px;
+  padding: 5px;
+  color: white;
+  background-color: red;
+  border-radius: 5px;
+  font-size: larger;
+  font-weight: bold;
+  width: max-content;
+  margin-right: auto;
+  margin-left:auto;
+}
+
+.delete-launcher:hover{
+
+  background-color: rgb(207, 0, 0);
+  color: rgb(230, 230, 230)
+
+}
+
+.delete-modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.delete-modal p{
+  color: grey;
+  font-style: italic;
+  font-size: small;
+}
+
+.delete-modal h2{
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.buttons button{
+  color: white;
+  background-color: cornflowerblue;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.buttons button:hover{
+  background-color: dodgerblue;
+}
+
+.delete-modal > *{
+  margin-bottom: 10px;
+}

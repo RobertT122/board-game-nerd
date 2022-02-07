@@ -39,7 +39,7 @@ const GameDetails = (props) => {
             <div>Artist: {game.artist}</div>
           </div>
 
-          <label htmlFor="category-game-list" className="category-title">Categories:</label>
+          <label htmlFor="category-game-list" className="category-title">{categories.length > 0? 'Catgegories:': ''}</label>
           <ul id="category-game-list">
             {
               categories.map(category => (

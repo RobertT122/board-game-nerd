@@ -4,6 +4,7 @@ import { succeeded } from "./ui_actions";
 
 export const RECIEVE_GAME = "RECIEVE_GAME"
 export const RECIEVE_GAME_ERRORS = "RECIEVE_GAME_ERRORS"
+export const REMOVE_GAME = "REMOVE_GAME"
 
 export const RECIEVE_ALL_GAMES = "RECIEVE_ALL_GAMES"
 
@@ -56,7 +57,12 @@ const recieveUserGames = gamesList => ({
   gamesList
 })
 
-export const receiveErrors = errors => ({
+const removeGame = gameId => ({
+  type: REMOVE_GAME,
+  gameId
+})
+
+export const receiveErrors = (errors = []) => ({
   type: RECIEVE_GAME_ERRORS,
   errors
 });
@@ -66,6 +72,9 @@ export const createNewGame = (formData, addCategories) => dispatch => (
     .then(
       res => {
         dispatch(succeeded())
+        console.log(typeof res.game_id);
+        console.log(res.game_id);
+        console.log(addCategories);
         GamesUtil.createGamesCategories(addCategories, res.game_id)
       },
       res => {
@@ -74,26 +83,35 @@ export const createNewGame = (formData, addCategories) => dispatch => (
     )
 )
 
-export const updateGame = (formData, addCategories, deleteCategories) => dispatch => (
-  GamesUtil.updateGame(formData)
-    .then(
-      () => {
-        dispatch(succeeded())
-        let gameId = formData.get('game[id]')
-        GamesUtil.createGamesCategories(addCategories, gameId)
-        GamesUtil.destroyGamesCategories(deleteCategories, gameId)
-      },
-      res => {
-        dispatch(receiveErrors(res.responseJSON))
-      }
-    )
-)
+export const updateGame = (formData, addCategories, deleteCategories) => dispatch => {
+  let gameId = parseInt(formData.get('game[id]'), 10)
+  
+  return(
+    GamesUtil.updateGame(formData)
+      .then(
+        () => {
+          dispatch(succeeded())
+          GamesUtil.createGamesCategories(addCategories, gameId)
+          console.log(typeof gameId);
+          console.log(gameId);
+          console.log(addCategories);
+          console.log(gameId);
+          console.log(deleteCategories);
+          GamesUtil.destroyGamesCategories(deleteCategories, gameId)
+        },
+        res => {
+          dispatch(receiveErrors(res.responseJSON))
+        }
+      )
+  )
+}
 
 export const deleteGame = (game_id) => dispatch =>(
-  GamesUtil.deleteGame(game_d)
+  GamesUtil.deleteGame(game_id)
     .then(
-      res=>{
-        console.log(res.messages)
+      ()=>{
+        dispatch(succeeded())
+        dispatch(removeGame(game_id))
       },
       res => {
         dispatch(receiveErrors(res.responseJSON))

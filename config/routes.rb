@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :games_categories, only: [:create]
   end
   
-  delete "/api/games_categories", to: "api/games_categories#destroy"
+  delete "/api/games_categories", to: "api/games_categories#searchAndDestroy"
 
   root to: "static_pages#root"
 end

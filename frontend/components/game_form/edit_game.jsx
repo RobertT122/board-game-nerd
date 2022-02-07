@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 // import { useLocation } from "react-router-dom";
 import GameForm from "./game_form";
-import { retrieveGame } from "../../actions/game_actions";
+import { retrieveGame, updateGame } from "../../actions/game_actions";
 import OopsPage from "../errors/oops_page";
 
 
@@ -52,12 +52,14 @@ const EditGame = (props) => {
   
       return(
         <GameForm 
-          submitAction={(formData)=>console.log(formData.get('game[id]'))}  
+          submitAction={props.updateGame}  
           game={safeGame} 
           designerArr={designerArr} 
           artistArr={artistArr} 
           categoryArr={props.game.categories}
           defaultPhoto={props.game.imageUrl}
+          submitName={"Update Game"}
+          deleteAction={null}
         />
       )
     }
@@ -67,6 +69,9 @@ const EditGame = (props) => {
 }
 
 const stringListToArray = (strList) => {
+  if(strList === 'unknown'){
+    return []
+  }
   return strList.split(', ')
 }
 
@@ -80,6 +85,7 @@ const mapSTP = (state, ownProps) => ({
 
 const mapDTP = (dispatch, ownProps) => ({
   retrieveGame: ()=> dispatch(retrieveGame(ownProps.match.params.game_id)),
+  updateGame: (...args)  => dispatch(updateGame(...args))
 })
 
 const EditGameContainer = connect(mapSTP, mapDTP)(EditGame);

@@ -19,9 +19,9 @@ const GamePage =  (props) => {
       return(
       <button 
         className="edit-button" 
-        onClick={()=>history.push(
-          location.pathname.split('/').shift().unshift('game/edit').join('/')
-        )}
+        onClick={()=>{
+          history.push(`/game/edit/${props.game.id}`)
+        }}
       > edit </button>
       )
     }

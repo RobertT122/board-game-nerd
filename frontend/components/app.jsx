@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Route, Switch } from "react-router";
 
-import { AuthRoute, ProtectRoute } from "../util/route_util";
+import { AuthRoute, ProtectRoute, GoHomeRoute } from "../util/route_util";
 
 import { fetchCurrentUser } from "../actions/session_actions";
 import { fetchCategories } from "../actions/categories_actions";
@@ -11,6 +11,7 @@ import SignUpFormContainer from "./session/signup_form_container";
 
 import Header from "./header/header";
 import ModalContainer from "./modal/modal";
+import Footer from "./footer/footer";
 
 import Splash from "./splash/splash";
 import GamePage from "./game/game_page";
@@ -33,10 +34,12 @@ const App = (props) => {
       <ModalContainer />
       <Switch>
         <ProtectRoute exact path="/game/new" component={CreateGame} />
-        <ProtectRoute path="/game/edit/:game_id" component={EditGame}/>
+        <ProtectRoute exact path="/game/edit/:game_id" component={EditGame}/>
         <Route path="/game/:game_id" component={GamePage} />
-        <Route path="/" component={Splash} />
+        <Route path="/splash" component={Splash} />
+        <GoHomeRoute path="/" />
       </Switch>
+      <Footer/>
     </div>
   )
   

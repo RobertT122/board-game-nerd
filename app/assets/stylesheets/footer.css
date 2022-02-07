@@ -1,0 +1,31 @@
+.footer{
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: rgb(56, 49, 94);
+  padding-bottom: 30px;
+  position:absolute;
+  bottom: auto;
+  width:100%;
+}
+
+.footer a{
+  padding-left: 10px;
+  color:rgb(0, 186, 211)
+}
+
+.footer h2 {
+  color: white;
+  font-weight: bold;
+  font-size: small;
+}
+
+.footer span{
+  color: white;
+  font-size: small;
+  font-weight: lighter;
+}
+
+

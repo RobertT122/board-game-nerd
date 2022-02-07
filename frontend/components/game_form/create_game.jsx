@@ -32,6 +32,8 @@ const CreateGame = props => {
       artistArr={artistArr} 
       categoryArr={categoryArr}
       defaultPhoto={window.noImage}
+      submitName={"Create New game"}
+      deleteAction={null}
     />
   )
 }

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { connect } from "react-redux";
 import { retrieveUserGames } from "../../actions/game_actions";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const UserGames = ({retrieveUserGames, games, loading}) => {
   useEffect(() => retrieveUserGames(), [])
