@@ -118,7 +118,10 @@
   background-color: rgb(245, 245, 245);
 }
 .category-input{
+  margin-right: 20%;
+  margin-left: 10%;
   display: flex;
+  flex-wrap: wrap;
 }
 .category-button{
   background-color: white;
@@ -127,6 +130,7 @@
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+  width: max-content;
 }
 
 .category-button:hover{
