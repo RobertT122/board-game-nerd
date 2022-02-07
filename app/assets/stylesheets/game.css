@@ -147,3 +147,18 @@
   padding: 3px;
   border-radius: 5px;
 }
+
+.edit-button{
+  color: white;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 10px;
+  border-radius: 9px;
+  position: absolute;
+  right: 10px;
+  border: 5px black solid;
+}
+
+.edit-button:hover{
+  background-color: rgb(107, 107, 107);
+}

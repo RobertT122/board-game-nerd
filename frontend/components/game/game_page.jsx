@@ -22,7 +22,7 @@ const GamePage =  (props) => {
         onClick={()=>{
           history.push(`/game/edit/${props.game.id}`)
         }}
-      > edit </button>
+      > EDIT </button>
       )
     }
     return <></>
