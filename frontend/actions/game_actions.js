@@ -142,9 +142,9 @@ export const quickSearchGames = search => dispatch => {
     })
 }
 
-export const retrieveTopTen = () => dispatch => {
+export const retrieveTopTen = search => dispatch => {
   dispatch(startLoadingAllGames())
-  return GamesUtil.retrieveTopTen()
+  return GamesUtil.retrieveTopTen(search)
     .then(gamesList=>{
       dispatch(recieveTopTen(gamesList))
     })

@@ -1,4 +1,4 @@
-.game-form .delete-launcher{
+.game-form .delete-launcher, .photo-reset{
   margin: 10px;
   padding: 5px;
   color: white;
@@ -11,11 +11,15 @@
   margin-left:auto;
 }
 
-.delete-launcher:hover{
+.delete-launcher:hover, .photo-reset:hover{
 
   background-color: rgb(207, 0, 0);
   color: rgb(230, 230, 230)
 
+}
+
+.game-form .photo-reset{
+  font-size: small;
 }
 
 .delete-modal{

@@ -3,7 +3,7 @@
   margin-bottom: 10px;
 }
 
-.error_item{
+.error_item, .no-games-error{
   width:max-content;
   color: rgb(161, 69, 69);
   background-color: white;
@@ -11,4 +11,9 @@
   border: solid 1px grey;
   margin-top: 3px; 
   border-radius: 3px;
+}
+
+.no-games-error{
+  margin-left: auto;
+  margin-right: auto;
 }

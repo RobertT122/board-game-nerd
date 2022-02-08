@@ -52,7 +52,19 @@ class Api::GamesController < ApplicationController
   
   def topTen
   # returns a sorted list of the top 10 games by rating on the sit
-    @games = Game.order('avg_rating DESC NULLS LAST').limit(10)
+    page_index = topTenParams[:page_index].to_i
+    list_size = topTenParams[:list_size].to_i
+    category_id = topTenParams[:category_id].to_i
+    
+    if category_id > 0
+      @games = Game.joins(:games_categories)
+        .where(games_categories: {category_id: category_id})
+        .order('avg_rating DESC NULLS LAST')
+        .limit(list_size).offset(list_size*page_index)
+    else
+      @games = Game.order('avg_rating DESC NULLS LAST')
+        .limit(list_size).offset(list_size*page_index)
+    end
     render 'api/games/list'
   end
 
@@ -79,6 +91,14 @@ class Api::GamesController < ApplicationController
       :year,
       :uploader_id,
       :photo
+    )
+  end
+
+  def topTenParams
+    params.require(:topTen).permit(
+      :category_id,
+      :page_index,
+      :list_size
     )
   end
   

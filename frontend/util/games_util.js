@@ -20,10 +20,11 @@ export const quickSearchGames = search =>(
   })
 )
 
-export const retrieveTopTen = () => (
+export const retrieveTopTen = ({categoryId: category_id, pageIndex: page_index, listSize: list_size}) => (
   $.ajax({
     method: "GET",
-    url: 'api/games/topTen'
+    url: 'api/games/topTen',
+    data: {topTen: {category_id, page_index, list_size}}
   })
 )
 
