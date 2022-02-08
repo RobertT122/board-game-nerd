@@ -15,7 +15,6 @@ const CategoryInput = ({categorySet, setCategorySet, categories}) => {
       setCategorySet(tempSet)
     }
   )
-  console.log(categorySet)
 
   return (
     <ul className="category-input">

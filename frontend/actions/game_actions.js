@@ -72,9 +72,6 @@ export const createNewGame = (formData, addCategories) => dispatch => (
     .then(
       res => {
         dispatch(succeeded())
-        console.log(typeof res.game_id);
-        console.log(res.game_id);
-        console.log(addCategories);
         GamesUtil.createGamesCategories(addCategories, res.game_id)
       },
       res => {
@@ -92,11 +89,6 @@ export const updateGame = (formData, addCategories, deleteCategories) => dispatc
         () => {
           dispatch(succeeded())
           GamesUtil.createGamesCategories(addCategories, gameId)
-          console.log(typeof gameId);
-          console.log(gameId);
-          console.log(addCategories);
-          console.log(gameId);
-          console.log(deleteCategories);
           GamesUtil.destroyGamesCategories(deleteCategories, gameId)
         },
         res => {

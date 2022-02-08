@@ -44,7 +44,6 @@ const EditGame = (props) => {
         uploader_id,
         id
       }
-      console.log(safeGame)
   
       const artistArr = stringListToArray(props.game.artist)
       const designerArr = stringListToArray(props.game.designer)
