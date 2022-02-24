@@ -3,6 +3,7 @@ import ErrorsContainer from "../errors/errors";
 import { connect } from "react-redux";
 import { login } from "../../actions/session_actions";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 class LoginModal extends Component{
   constructor(props){
@@ -62,7 +63,7 @@ class LoginModal extends Component{
           <button type="submit" className="submit-button">Log In</button>
         </form>
         <button className="link" onClick={this.demoUser}>Demo User</button>
-        <Link to="/signup" className="link">sign up</Link>
+        <Link to="/signup" className="link" onClick={this.props.hide}>sign up</Link>
         <ErrorsContainer/>
       </>
     )

@@ -9,10 +9,10 @@ const Header = props => {
   <>
   <div className="header">
     <div className="left-header">
-      <button onClick={() => history.push('/')}>Home</button>
+      <button onClick={() => history.push('/splash')}>Home</button>
     </div>
     <div className="right-header">
-    <SessionContainer />
+    { props.signin ? <></> : <SessionContainer />}
     <SearchBar />
     </div>
   </div>

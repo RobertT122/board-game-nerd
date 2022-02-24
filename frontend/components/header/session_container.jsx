@@ -12,7 +12,7 @@ const mapSTP = ({ session, entities: { users } }) => {
 
 const mapDTP = dispatch => ({
   logout: () => dispatch(logout()),
-  showLogin: () => dispatch(showLoginModal()),
+  showLogin: () => dispatch(showLoginModal())
 });
 
 const SessionContainer = withRouter(connect(mapSTP, mapDTP)(Session));

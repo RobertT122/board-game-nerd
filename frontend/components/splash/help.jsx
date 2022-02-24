@@ -15,7 +15,7 @@ const Help = () => (
     </p>
     <br />
     <p>
-      Their are even more features once you've login <span>(There is a Demo user if your just looking to try it out! Click the "Login" button and navigate to the "Demo User" option)</span>
+      There are even more features once you've login <span>(There is a Demo user if your just looking to try it out! Click the "Login" button and navigate to the "Demo User" option)</span>
     </p>
     <br />
     <div>

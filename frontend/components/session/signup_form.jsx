@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import ErrorsContainer from "../errors/errors";
-
+import Header from "../header/header";
 
 class SignUpForm extends Component{
   constructor(props){
@@ -31,10 +31,11 @@ class SignUpForm extends Component{
   render(){
     
     return(
+      <>
+      <Header signin={true}/>
       <div className="form-container">
         <h2 className="form-title">Sign up</h2>
         <form onSubmit={this.handleSubmit}>
-          {/* <div className="form-input"> */}
             <label htmlFor="username">username</label>
             <input
               className="text-input"
@@ -42,31 +43,27 @@ class SignUpForm extends Component{
               type="text" 
               value ={this.state.username}
               onChange={this.handleChange("username")}
-            />
-          {/* </div> */}
-          {/* <div className="form-input"> */}
+              />
             <label htmlFor="email">email</label>
             <input
               className="text-input"
               id="email"
               type="email"
               onChange={this.handleChange("email")}
-            />
-          {/* </div> */}
-          {/* <div className="form-input"> */}
+              />
             <label htmlFor="password">password</label>
             <input
               className="text-input"
               id="password"
               type="password"
               onChange={this.handleChange("password")}
-            />
-          {/* </div> */}
+              />
           <button type="submit" className="submit-button">Sign Up</button>
         </form>
         <ErrorsContainer />
 
       </div>
+      </>
     )
   }
 }
