@@ -22,6 +22,9 @@ const Splash = ({currentUser}) => {
   
   return (
     <div className="splash-body">
+      <div className="logo-container">
+        <img src={window.logoPng} alt="" className="splash-logo"/>
+      </div>
       <TopTenContainer/>
       {/* <CategoryLinksContainer/> */}
       {extendedSplash()}
