@@ -49,7 +49,7 @@
   color: white;
   padding: 10px;
   border-radius: 4px;
-
+  transition: 0.3s;
 }
 
 .submit-button:hover {
@@ -113,6 +113,7 @@
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
+  transition: 0.3s;
 }
 .game-form  .game-photo-input-label:hover, .range-button:hover {
   background-color: rgb(245, 245, 245);
@@ -131,6 +132,7 @@
   padding: 6px 12px;
   cursor: pointer;
   width: max-content;
+  transition: 0.3s;
 }
 
 .category-button:hover{
@@ -140,6 +142,7 @@
 ul .active{
   color: white;
   background-color: rgb(0, 163, 35);
+  transition: 0.3s;
 }
 ul .active:hover{
   background-color: rgb(0, 114, 25);
@@ -167,6 +170,7 @@ ul .active:hover{
   text-align: center;
   margin: 5px;
   font-weight: bolder;
+  transition: 0.3s;
 }
 
 .add-button:hover, .remove-button:hover{

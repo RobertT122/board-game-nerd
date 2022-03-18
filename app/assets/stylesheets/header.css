@@ -29,6 +29,7 @@
   color: white;
   padding: 5px;
   border-radius: 2px;
+  transition: 0.3s;
 
 }
 
@@ -96,6 +97,7 @@
   color:rgb(231, 231, 231);
   background-color: rgb(47, 42, 73);
   margin-left: 3px;
+  transition: 0.3s;
 }
 
 .header-buttons .logout:hover, .header .session-header-buttons button:hover{
