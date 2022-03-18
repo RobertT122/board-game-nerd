@@ -13,13 +13,12 @@
 
 .game-link:hover{
   background-color: rgb(245, 245, 245);
-  padding-top: 7px;
-  padding-bottom: 7px;
+  height: 80px;
 }
 
 .thumbnail{
-  max-height: 40px;
-  max-width: 40px;
+  max-height: 100%;
+  max-width: 100px;
   padding-left: 10px;
 }
 
