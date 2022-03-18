@@ -9,11 +9,13 @@
   text-decoration: none;
   padding: 5px;
   transition: 0.3s;
+  font-size: large;
 }
 
 .game-link:hover{
   background-color: rgb(245, 245, 245);
   height: 80px;
+  font-size: 30px;
 }
 
 .thumbnail{
@@ -36,7 +38,7 @@
 .game-link > span{
   width: 100%;
   text-align: center;
-  font-size: large;
+  font-size: inherit;
   font-weight: bold;
 }
 
