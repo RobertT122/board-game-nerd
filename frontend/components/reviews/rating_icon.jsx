@@ -24,7 +24,7 @@ const renderHexIcon = (num) => {
   }
   if(num < 5){
     return <img src={window.redHexUrl}/>
-  }else if(num < 7){
+  }else if(num < 8){
     return <img src={window.yellowHexUrl}/>
   }else{
     return <img src={window.greenHexUrl}/>

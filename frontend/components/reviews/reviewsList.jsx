@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import RatingIcon from "./rating_icon";
+import ReviewAnalitics from "./reviewAnalytics";
 
 
 const ReviewList = ({users, reviews, loading}) => {
@@ -8,10 +9,10 @@ const ReviewList = ({users, reviews, loading}) => {
   if (loading){
     return <></>
   }
-
   return(
     <>
       <h2 className="context-title">Reviews and Comments</h2>
+      <ReviewAnalitics reviews= {Object.values(reviews)}/>
       <ul className="context-body review-list">
         {
           Object.values(reviews).reverse().map(review => (
