@@ -11,7 +11,7 @@ const ReviewAnalitics = ({reviews}) => {
       ratingJSX[key] = <li key={key}>
         <span className="numberKey">{key}</span>
 
-        <div className="percentage-box"><div style={{backgroundColor: 'blue', height: 10, width: (ratingCount[key]/reviews.length)*100 }}></div></div>
+        <div className="percentage-box"><div style={{backgroundColor: 'cornflowerblue', height: 10, width: (ratingCount[key]/reviews.length)*100, borderRadius: 5, borderColor: "blue", borderWidth: 1, borderStyle: 'solid' }}></div></div>
         <span className="numberPercent">{Math.round(ratingCount[key]/reviews.length * 1000)/10}%</span>
       </li>
     } else {
