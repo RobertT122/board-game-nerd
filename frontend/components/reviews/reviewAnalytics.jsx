@@ -18,6 +18,7 @@ const ReviewAnalitics = ({reviews}) => {
       ratingJSX[key] = <></>
     }
   })
+  
   return(
     <div>
       <ol className="review-counts">
