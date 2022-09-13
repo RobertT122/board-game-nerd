@@ -77,3 +77,5 @@ const ModalContainer = connect(mapSTP, mapDTP)(Modal)
 
 
 ```
+
+Checkout my wiki for more information about my project...
